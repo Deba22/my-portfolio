@@ -1,4 +1,5 @@
 import About from "../components/About"
+import Contact from "../components/Contact"
 import Landing from "../components/Landing"
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <main>
       <Landing />
       <About/>
+      <Contact/>
     </main>
   )
 }
