@@ -1,16 +1,16 @@
-import Link from 'next/link'
+import {Link} from 'react-scroll'
 
 function Navbar() {
     return (
-        <header>
+        <header id="navbar">
             <div className="container">
                 <nav>
                 <div className="logo">
                 </div>
-                <Link href="/"><a>About</a></Link>
-                <Link href="/"><a>Work</a></Link>
-                <Link href="/blogs"><a>Blogs</a></Link>
-                <Link href="/"><a className="last">Contact</a></Link>
+                <Link to="about" smooth={true}><a href="">About</a></Link>
+                <Link  to="work" smooth={true}><a href="">Work</a></Link>
+                <Link to="contact" smooth={true}><a href="">Blogs</a></Link>
+                <Link to="contact" smooth={true}><a className="last" href="">Contact</a></Link>
                 </nav>
             </div>
         </header>

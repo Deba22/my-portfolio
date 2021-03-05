@@ -1,7 +1,7 @@
 import animationDataHero from "../public/hero-image.json"
 import Animation from '../components/Animation'
 import styles from '../styles/Landing.module.css'
-
+import {Link} from 'react-scroll'
 function Landing() {
   return (
     <section id="hero">
@@ -16,7 +16,7 @@ function Landing() {
           </h3>
           <span className={styles.pitch}>Wanna hear my pitch?</span>
           <br></br>
-          <button type="submit" className={styles.btn}>Sure, why not!</button>
+          <Link to="contact" smooth={true}><a href=""><button className={styles.btn}>Sure, why not!</button></a></Link>
         </div>
         <div className={styles.hero__inner__splitTwo}>
           <Animation animPath={animationDataHero} />

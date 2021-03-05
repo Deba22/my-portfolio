@@ -1,30 +1,59 @@
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 function Contact() {
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+    const [name, setName] = useState("");
+
+    const [isEmailActive, setisEmailActive] = useState(false);
+    const [isMessageActive, setisMessageActive] = useState(false);
+    const [isNameActive, setisNameActive] = useState(false);
+
+    const nameRef = useRef(null);
+    const emailRef = useRef(null);
+    const messageRef = useRef(null);
+    const emailRE = /^\S+@\S+\.\S+$/;
+
+    const handleSendMessage = (e) => {
+        e.preventDefault();
+        if (!name) {
+            nameRef.current.nextSibling.classList.add('error-msg');
+            nameRef.current.focus();
+        }
+        else if(!email || !emailRE.test(email)){
+            emailRef.current.nextSibling.classList.add('error-msg');
+            emailRef.current.focus();
+        }
+        else if(!message || message.length<10){
+            messageRef.current.nextSibling.classList.add('error-msg');
+            messageRef.current.focus();
+        }
+        else{
+            alert("All good");
+        }
+    }
     useEffect(() => {
-        const contactForm = document.querySelector('.contact-form');
         const inputElems = document.querySelectorAll('.inputElem');
         const emailRE = /^\S+@\S+\.\S+$/;
 
         inputElems.forEach((elem) => {
-            elem.addEventListener('focus', (e) => {
-                if (!e.target.classList.contains('active')) {
-                    e.target.classList.add('active');
-                }
-            });
+            // elem.addEventListener('focus', (e) => {
+            //     if (!e.target.classList.contains('active')) {
+            //         e.target.classList.add('active');
+            //     }
+            // });
             elem.addEventListener('keydown', (e) => {
-                if (e.target.parentNode.classList.contains('error')) {
-                    e.target.parentNode.classList.remove('error');
+                if (e.target.nextSibling.classList.contains('error-msg')) {
+                    e.target.nextSibling.classList.remove('error-msg');
                 }
             });
             elem.addEventListener('blur', (e) => {
                 if (!e.target.value) {
-                    e.target.classList.remove('active');
-                    e.target.parentNode.classList.add('error');
+                    e.target.nextSibling.classList.add('error-msg');
                 } else if (e.target.getAttribute('name') === 'email' && !emailRE.test(e.target.value)) {
-                    e.target.parentNode.classList.add('error');
+                    e.target.nextSibling.classList.add('error-msg');
                 } else if (e.target.getAttribute('name') === 'message' && e.target.value.length < 10) {
-                    e.target.parentNode.classList.add('error');
+                    e.target.nextSibling.classList.add('error-msg');
                 }
             });
         });
@@ -35,7 +64,7 @@ function Contact() {
                 <h3 className="heading">Let's Talk Business!</h3>
                 <div className="contact-inner">
                     <div className="contact-info">
-                        <Image alt="web-dev service image" src="/contact.svg" height="300" width="500" />
+                        <Image alt="web-dev service image" src="/contact.svg" height="370" width="500" />
                         <div className="contact-info-inner">
                             <h5>Let's make it work.</h5>
                             <h3><a href="mailto:debagracias@gmail.com">debagracias@gmail.com</a></h3>
@@ -45,22 +74,22 @@ function Contact() {
                     <form className="contact-form">
                         <h5>I'd love to hear from you</h5>
                         <div className="form-input">
-                            <input type="text" name="name" id="name" className="inputElem" />
-                            <label for="name">Name</label>
+                            <label className={(isNameActive && name) ? "field-active" : ""}>Name</label>
+                            <input ref={nameRef} type="text" name="name" id="name" className="inputElem" value={name} onChange={e => setName(e.target.value)} onFocus={e => setisNameActive(true)} />
                             <p className="error">Please enter your name</p>
                         </div>
                         <div className="form-input">
-                            <input type="email" name="email" id="email" className="inputElem" />
-                            <label htmlFor="email">Email Address</label>
+                            <label className={(isEmailActive && email) ? "field-active" : ""}>Email</label>
+                            <input ref={emailRef} type="email" name="email" id="email" className="inputElem" value={email} onChange={e => setEmail(e.target.value)} onFocus={e => setisEmailActive(true)} />
                             <p className="error">Enter a valid email address</p>
                         </div>
                         <div className="form-input">
-                            <textarea name="message" id="message" className="inputElem"></textarea>
-                            <label htmlFor="message">Message</label>
+                            <label className={(isMessageActive && message) ? "field-active" : ""}>Message</label>
+                            <textarea ref={messageRef} name="message" id="message" className="inputElem" value={message} onChange={e => setMessage(e.target.value)} onFocus={e => setisMessageActive(true)}></textarea>
                             <p className="error">Come on, pour your heart out...</p>
                         </div>
                         <div className="form-input buttons">
-                            <button type="submit" className="button buttonPrimary" id="submitForm">Send Message</button>
+                            <button type="submit" className="button" id="submitForm" onClick={handleSendMessage}>Send Message</button>
                         </div>
                     </form>
                 </div>
