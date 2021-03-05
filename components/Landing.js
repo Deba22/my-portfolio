@@ -16,7 +16,7 @@ function Landing() {
           </h3>
           <span className={styles.pitch}>Wanna hear my pitch?</span>
           <br></br>
-          <Link to="contact" smooth={true}><a href=""><button className={styles.btn}>Sure, why not!</button></a></Link>
+          <Link to="contact" smooth={true}><button className={styles.btn}>Sure, why not!</button></Link>
         </div>
         <div className={styles.hero__inner__splitTwo}>
           <Animation animPath={animationDataHero} />
