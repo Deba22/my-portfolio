@@ -360,6 +360,7 @@ nav .logo {
 }
 .work-option input {
   display: none;
+  cursor: pointer;
 }
 .work-option label {
   padding: .5rem 1.5rem;
@@ -368,6 +369,7 @@ nav .logo {
   display: flex;
   align-items: center;
   color: #0f97b8;
+  cursor: pointer;
 }
 .work-option input:checked+label {
   background:#0f97b8;
