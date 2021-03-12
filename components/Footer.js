@@ -1,15 +1,20 @@
 
-import {Link} from 'react-scroll'
+import { Link } from 'react-scroll'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
+
 function Footer() {
+    const router = useRouter()
     return (
         <footer>
             <div className="container">
-                <Link to="navbar" smooth={true} className="backToTop">
-                   
+                {router.pathname == "/" ?
+                    (<Link to="navbar" smooth={true} className="backToTop">
                         <svg className="svg-inline--fa fa-chevron-up fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path>
                         </svg>
-                        </Link>
+                    </Link>) :
+                    null
+                }
                 <div className="footer-inner">
                     <div className="nav-info">
                         <span>
@@ -19,13 +24,13 @@ function Footer() {
                     </div>
                     <span className="nav-social">
                         <a href="https://github.com/Deba22" rel="noreferrer" target="_blank" aria-label="Github">
-                            <Image src="/github.svg" alt="github" height="20" width="20" className="social-icons"/>
+                            <Image src="/github.svg" alt="github" height="20" width="20" className="social-icons" />
                         </a>
                         <a href="https://www.linkedin.com/in/debasish-gracias-47456a136/" rel="noreferrer" target="_blank" aria-label="LinkedIn">
-                            <Image src="/linkedin.svg" alt="LinkedIn" height="20" width="20" className="social-icons"/>
+                            <Image src="/linkedin.svg" alt="LinkedIn" height="20" width="20" className="social-icons" />
                         </a>
                         <a href="https://www.instagram.com/deba_gracias/" rel="noreferrer" target="_blank" aria-label="Instagram">
-                            <Image src="/instagram.svg" alt="Instagram" height="20" width="20" className="social-icons"/>
+                            <Image src="/instagram.svg" alt="Instagram" height="20" width="20" className="social-icons" />
                         </a>
                         {/* <a href="https://instagram.com/santdas36" rel="noreferrer" target="_blank" aria-label="Instagram">
                             <svg class="svg-inline--fa fa-instagram fa-w-14 fa-fw" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">

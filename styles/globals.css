@@ -730,3 +730,11 @@ footer .container {
   margin-top: auto;
 }
 /* End Footer Section */
+/* Start Blogs Page */
+.blogs{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* End Blogs Page */

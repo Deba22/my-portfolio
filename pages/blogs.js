@@ -1,8 +1,9 @@
-
+import Image from 'next/image'
 function blogs() {
     return (
-        <div>
-            <h1>Blogs</h1>
+        <div className="blogs">
+            <Image alt="web-dev service image" src="/coming-soon.svg" height="500" width="500" />
+            <h1>Coming soon...</h1>
         </div>
     )
 }
