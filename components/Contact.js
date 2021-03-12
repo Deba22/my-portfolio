@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import { useEffect, useState, useRef } from 'react'
+import { server } from '../config'
+
 function Contact() {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
@@ -14,22 +16,45 @@ function Contact() {
     const messageRef = useRef(null);
     const emailRE = /^\S+@\S+\.\S+$/;
 
-    const handleSendMessage = (e) => {
+    const handleSendMessage = async (e) => {
         e.preventDefault();
         if (!name) {
             nameRef.current.nextSibling.classList.add('error-msg');
             nameRef.current.focus();
         }
-        else if(!email || !emailRE.test(email)){
+        else if (!email || !emailRE.test(email)) {
             emailRef.current.nextSibling.classList.add('error-msg');
             emailRef.current.focus();
         }
-        else if(!message || message.length<10){
+        else if (!message || message.length < 10) {
             messageRef.current.nextSibling.classList.add('error-msg');
             messageRef.current.focus();
         }
-        else{
-            alert("All good");
+        else {
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ Name: name, Email: email, Message: message })
+            };
+            const response = await fetch(`${server}/api/sendMessageToAirtable`, requestOptions)
+                .then(async response => {
+                    const data = await response.json();
+                    // check for error response
+                    if (!response.ok) {
+                        // get error message from body or default to response status
+                        const error = (data && data.message) || response.status;
+                        return Promise.reject(error);
+                    }
+                    setName("");
+                    setEmail("");
+                    setMessage("");
+                    console.log('success!');
+                    alert('success');
+                })
+                .catch(error => {
+                    console.error('There was an error!', error);
+                    alert(error);
+                });
         }
     }
     useEffect(() => {
