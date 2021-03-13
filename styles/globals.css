@@ -577,7 +577,10 @@ h3>a{
   top: 16px;
   transition: all 150ms ease-in;
   color: #676767;
+  cursor: text;
  }
+
+
 label.field-active {
   transform: translateY(-27px);
   font-size: .9em;

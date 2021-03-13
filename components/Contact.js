@@ -1,8 +1,10 @@
 import Image from 'next/image'
 import { useEffect, useState, useRef } from 'react'
 import { server } from '../config'
+import { ToastProvider, useToasts } from 'react-toast-notifications'
 
 function Contact() {
+    const { addToast } = useToasts();
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const [name, setName] = useState("");
@@ -49,24 +51,39 @@ function Contact() {
                     setEmail("");
                     setMessage("");
                     console.log('success!');
-                    alert('success');
+                    //alert('success');
+                    addToast("Thanks! You'll hear from me within 24 hours. Keep an eye on your email box.", {
+                        appearance: 'success',
+                        autoDismiss: true,
+                        autoDismissTimeout:7500
+                    })
                 })
                 .catch(error => {
                     console.error('There was an error!', error);
-                    alert(error);
+                    //alert(error);
+                    addToast("There was an error in sending your message. Please try again later.", {
+                        appearance: 'error',
+                        autoDismiss: true,
+                        autoDismissTimeout:7500
+                    })
                 });
         }
     }
     useEffect(() => {
         const inputElems = document.querySelectorAll('.inputElem');
+        const inputElemsLabels = document.querySelectorAll('.form-input label');
         const emailRE = /^\S+@\S+\.\S+$/;
-
+        inputElemsLabels.forEach((elem) => {
+            elem.addEventListener('click', (e) => {
+               elem.nextSibling.focus();
+            });
+        });
         inputElems.forEach((elem) => {
-            // elem.addEventListener('focus', (e) => {
-            //     if (!e.target.classList.contains('active')) {
-            //         e.target.classList.add('active');
-            //     }
-            // });
+            elem.addEventListener('focus', (e) => {
+                if (!e.target.classList.contains('active')) {
+                    e.target.classList.add('active');
+                }
+            });
             elem.addEventListener('keydown', (e) => {
                 if (e.target.nextSibling.classList.contains('error-msg')) {
                     e.target.nextSibling.classList.remove('error-msg');
@@ -74,6 +91,7 @@ function Contact() {
             });
             elem.addEventListener('blur', (e) => {
                 if (!e.target.value) {
+                    e.target.classList.remove('active');
                     e.target.nextSibling.classList.add('error-msg');
                 } else if (e.target.getAttribute('name') === 'email' && !emailRE.test(e.target.value)) {
                     e.target.nextSibling.classList.add('error-msg');
