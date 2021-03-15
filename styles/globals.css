@@ -456,6 +456,8 @@ nav .logo {
 }
 .project-details .buttons {
   margin-top: 2rem;
+  display: flex;
+  align-items: center;
 }
 .buttons .button+.button {
   margin-left: .5rem;
@@ -617,7 +619,7 @@ label.field-active {
 .form-input .button {
   border: none;
   color: #fff;
-  padding: 1rem 1.5rem;
+  padding: 0.8rem 1.5rem;
   border-radius: 99px;
   transition: all .2s;
   background:#0f97b8 ;
@@ -626,6 +628,7 @@ label.field-active {
   white-space: nowrap;
   cursor: pointer;
   outline: none;
+  font-size: 0.95rem;
 }
 .form-input .button:hover{
   box-shadow: 0 0.5rem 1.5rem rgb(45 147 173 / 50%);

@@ -111,7 +111,9 @@ function Work() {
                             <p className="project-desc">A finance managing app that allows you to track your day to day expenses easily and quickly. One can get meaningful and in-depth analysis and also generate reports.</p>
                             <p className="stack"><b>Tech Stack: </b>Xamarin Android, Firebase, Google and Facebook Authentication, Typeform</p>
                             <div className="buttons">
-                                <a rel="noreferrer" target="_blank" href="https://play.google.com/store/apps/details?id=com.debweb.expensetracker&hl=en" className="button">Live Preview</a>
+                                <a rel="noreferrer" target="_blank" href="https://play.google.com/store/apps/details?id=com.debweb.expensetracker&hl=en">
+                                    <Image src="/google-play-badge.png" alt="google-play" width={157} height={60} />
+                                </a>
                                 <a rel="noreferrer" target="_blank" href="https://github.com/Deba22/Expense-Tracker---Android-App" className="buttonText">View Code</a>
                             </div>
                         </div>
@@ -126,7 +128,7 @@ function Work() {
                             <p className="project-desc">An android app(digital book) that consists of various captivating and realistic articles/stories written by Golda and Curie.</p>
                             <p className="stack"><b>Tech Stack: </b>Xamarin Android, Firebase, Lottie Animation</p>
                             <div className="buttons">
-                                <a rel="noreferrer" target="_blank" href="https://github.com/Deba22/MyCollection/blob/master/mycollection.apk" className="button">Live Preview</a>
+                                <a rel="noreferrer" target="_blank" href="https://github.com/Deba22/MyCollection/blob/master/mycollection.apk" className="button">Download APK</a>
                                 <a rel="noreferrer" target="_blank" href="https://github.com/Deba22/MyCollection" className="buttonText">View Code</a>
                             </div>
                         </div>
@@ -141,7 +143,7 @@ function Work() {
                             <p className="project-desc">An android app that helps you maintain social distance by alerting you when other people are too close so that you can move, and maintain social distance from them.</p>
                             <p className="stack"><b>Tech Stack: </b>Xamarin Android, Bluetooth</p>
                             <div className="buttons">
-                                <a rel="noreferrer" target="_blank" href="https://github.com/Deba22/Covid-Fight-App/blob/master/covidfight.apk" className="button">Live Preview</a>
+                                <a rel="noreferrer" target="_blank" href="https://github.com/Deba22/Covid-Fight-App/blob/master/covidfight.apk" className="button">Download APK</a>
                                 <a rel="noreferrer" target="_blank" href="https://github.com/Deba22/Covid-Fight-App" className="buttonText">View Code</a>
                             </div>
                         </div>
