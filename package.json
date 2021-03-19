@@ -9,9 +9,11 @@
   },
   "dependencies": {
     "airtable": "^0.10.1",
+    "framer-motion": "^4.0.0",
     "next": "10.0.7",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-intersection-observer": "^8.31.0",
     "react-lottie": "^1.2.3",
     "react-scroll": "^1.8.1",
     "react-toast-notifications": "^2.4.3"
