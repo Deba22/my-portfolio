@@ -1,8 +1,14 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import MobileProject from './MobileProject';
 import WebProject from './WebProject';
 
 function Work() {
+    let MyCollectionslides = [
+        <Image src="/expense-tracker1.png" alt="expense-tracker1" key="1" height={500} width={250} />,
+        <Image src="/expense-tracker2.png" alt="expense-tracker2" key="2" height={500} width={250} />,
+        <Image src="/expense-tracker3.png" alt="expense-tracker3" key="3" height={500} width={250} />
+    ];
 
     const styleImage = {
         transform: `translate(${0}px, ${0}px)`
@@ -61,53 +67,15 @@ function Work() {
 
                 </div>
                 <div className="designs" id="mobileprojects" style={isMobileChecked ? { display: 'block' } : { display: 'none' }}>
-                    <div className="project">
-                        <div className="project-images">
-                            <img alt="spotify screenshot" loading="lazy" className="big" src="images/spotify.a7c9f4381c6bb80475411bb5d00147ec.webp" style={styleImage} />
-                            <img alt="spotify mobile screenshot" loading="lazy" className="small" src="images/spotify-small.8af8c646fb53f6a3e0b954dba265800e.webp" style={styleImage} />
-                        </div>
-                        <div className="project-details">
-                            <h4>Expense Tracker App</h4>
-                            <p className="project-desc">A finance managing app that allows you to track your day to day expenses easily and quickly. One can get meaningful and in-depth analysis and also generate reports.</p>
-                            <p className="stack"><b>Tech Stack: </b>Xamarin Android, Firebase, Google and Facebook Authentication, Typeform</p>
-                            <div className="buttons">
-                                <a rel="noreferrer" target="_blank" href="https://play.google.com/store/apps/details?id=com.debweb.expensetracker&hl=en">
-                                    <Image src="/google-play-badge.png" alt="google-play" width={157} height={60} />
-                                </a>
-                                <a rel="noreferrer" target="_blank" href="https://github.com/Deba22/Expense-Tracker---Android-App" className="buttonText">View Code</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="project">
-                        <div className="project-images">
-                            <img alt="spotify screenshot" loading="lazy" className="big" src="images/spotify.a7c9f4381c6bb80475411bb5d00147ec.webp" style={styleImage} />
-                            <img alt="spotify mobile screenshot" loading="lazy" className="small" src="images/spotify-small.8af8c646fb53f6a3e0b954dba265800e.webp" style={styleImage} />
-                        </div>
-                        <div className="project-details">
-                            <h4>My Collection App</h4>
-                            <p className="project-desc">An android app(digital book) that consists of various captivating and realistic articles/stories written by Golda and Curie.</p>
-                            <p className="stack"><b>Tech Stack: </b>Xamarin Android, Firebase, Lottie Animation</p>
-                            <div className="buttons">
-                                <a rel="noreferrer" target="_blank" href="https://github.com/Deba22/MyCollection/blob/master/mycollection.apk" className="button">Download APK</a>
-                                <a rel="noreferrer" target="_blank" href="https://github.com/Deba22/MyCollection" className="buttonText">View Code</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="project">
-                        <div className="project-images">
-                            <img alt="spotify screenshot" loading="lazy" className="big" src="images/spotify.a7c9f4381c6bb80475411bb5d00147ec.webp" style={styleImage} />
-                            <img alt="spotify mobile screenshot" loading="lazy" className="small" src="images/spotify-small.8af8c646fb53f6a3e0b954dba265800e.webp" style={styleImage} />
-                        </div>
-                        <div className="project-details">
-                            <h4>Covid Fight App</h4>
-                            <p className="project-desc">An android app that helps you maintain social distance by alerting you when other people are too close so that you can move, and maintain social distance from them.</p>
-                            <p className="stack"><b>Tech Stack: </b>Xamarin Android, Bluetooth</p>
-                            <div className="buttons">
-                                <a rel="noreferrer" target="_blank" href="https://github.com/Deba22/Covid-Fight-App/blob/master/covidfight.apk" className="button">Download APK</a>
-                                <a rel="noreferrer" target="_blank" href="https://github.com/Deba22/Covid-Fight-App" className="buttonText">View Code</a>
-                            </div>
-                        </div>
-                    </div>
+                    <MobileProject title="Expense Tracker App" description="A finance managing app that allows you to track your day to day expenses easily and quickly. One can get meaningful and in-depth analysis and also generate reports."
+                        techstack="Xamarin Android, Firebase, Google and Facebook Authentication, Typeform" slides={MyCollectionslides} showGoogleStore={true}
+                        livelink="https://play.google.com/store/apps/details?id=com.debweb.expensetracker&hl=en" codelink="https://github.com/Deba22/Expense-Tracker---Android-App" />
+                    <MobileProject title="My Collection App" description="An android app(digital book) that consists of various captivating and realistic articles/stories written by Golda and Curie."
+                        techstack="Xamarin Android, Firebase, Lottie Animation" slides={MyCollectionslides} showGoogleStore={false}
+                        livelink="https://github.com/Deba22/MyCollection/blob/master/mycollection.apk" codelink="https://github.com/Deba22/MyCollection" />
+                    <MobileProject title="Covid Fight App" description="An android app that helps you maintain social distance by alerting you when other people are too close so that you can move, and maintain social distance from them."
+                        techstack="Xamarin Android, Bluetooth" slides={MyCollectionslides} showGoogleStore={false}
+                        livelink="https://github.com/Deba22/Covid-Fight-App/blob/master/covidfight.apk" codelink="https://github.com/Deba22/Covid-Fight-App" />
                 </div>
                 <div className="view-more">
                     <a href="https://github.com/Deba22" rel="noreferrer" target="_blank" className="button">

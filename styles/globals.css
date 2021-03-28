@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Work+Sans:wght@400;600;700&display=swap");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 body {
   background: #eff7fa;
   color: #333;
@@ -421,6 +422,13 @@ nav .logo {
   -o-object-fit: cover;
   object-fit: cover;
 }
+.mobile-project-images{
+  flex: 0.6;
+  width: 60%;
+  position: relative;
+  height: 0;
+  padding-bottom: 35.15625%;
+}
 .project:nth-of-type(odd) .project-images .small {
   right: 15%;
   left: auto;
@@ -749,3 +757,17 @@ footer .container {
 }
 
 /* End Blogs Page */
+.react-3d-carousel .slider-container .slider-left div{
+  border-top: 2px solid #EC615B !important;
+    border-right: 2px solid #EC615B !important;
+    border-bottom: 2px solid #EC615B !important;
+    border-left: 2px solid #EC615B !important;
+    color: #000 !important;
+}
+.react-3d-carousel .slider-container .slider-right div {
+  border-top: 2px solid #EC615B !important;
+  border-right: 2px solid #EC615B !important;
+  border-bottom: 2px solid #EC615B !important;
+  border-left: 2px solid #EC615B !important;
+  color: #000 !important;
+}
