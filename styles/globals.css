@@ -757,6 +757,8 @@ footer .container {
 }
 
 /* End Blogs Page */
+
+/* Start mobile carousel */
 .react-3d-carousel .slider-container .slider-left div{
   border-top: 2px solid #EC615B !important;
     border-right: 2px solid #EC615B !important;
@@ -771,3 +773,9 @@ footer .container {
   border-left: 2px solid #EC615B !important;
   color: #000 !important;
 }
+
+.react-3d-carousel .slider-container .slider-content .slider-single .slider-single-content
+{
+  box-shadow: none !important;
+}
+/* End mobile carousel */

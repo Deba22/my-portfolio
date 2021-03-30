@@ -4,10 +4,20 @@ import MobileProject from './MobileProject';
 import WebProject from './WebProject';
 
 function Work() {
-    let MyCollectionslides = [
+    let ExpenseTrackerslides = [
         <Image src="/expense-tracker1.png" alt="expense-tracker1" key="1" height={500} width={250} />,
         <Image src="/expense-tracker2.png" alt="expense-tracker2" key="2" height={500} width={250} />,
         <Image src="/expense-tracker3.png" alt="expense-tracker3" key="3" height={500} width={250} />
+    ];
+    let MyCollectionslides = [
+        <Image src="/mycollection1.png" alt="expense-tracker1" key="1" height={500} width={250} />,
+        <Image src="/mycollection2.png" alt="expense-tracker2" key="2" height={500} width={250} />,
+        <Image src="/mycollection3.png" alt="expense-tracker3" key="3" height={500} width={250} />
+    ];
+    let CovidFightslides = [
+        <Image src="/covidfight1.png" alt="expense-tracker1" key="1" height={500} width={250} />,
+        <Image src="/covidfight2.png" alt="expense-tracker2" key="2" height={500} width={250} />,
+        <Image src="/covidfight3.png" alt="expense-tracker3" key="3" height={500} width={250} />
     ];
 
     const styleImage = {
@@ -68,13 +78,13 @@ function Work() {
                 </div>
                 <div className="designs" id="mobileprojects" style={isMobileChecked ? { display: 'block' } : { display: 'none' }}>
                     <MobileProject title="Expense Tracker App" description="A finance managing app that allows you to track your day to day expenses easily and quickly. One can get meaningful and in-depth analysis and also generate reports."
-                        techstack="Xamarin Android, Firebase, Google and Facebook Authentication, Typeform" slides={MyCollectionslides} showGoogleStore={true}
+                        techstack="Xamarin Android, Firebase, Google and Facebook Authentication, Typeform" slides={ExpenseTrackerslides} showGoogleStore={true}
                         livelink="https://play.google.com/store/apps/details?id=com.debweb.expensetracker&hl=en" codelink="https://github.com/Deba22/Expense-Tracker---Android-App" />
                     <MobileProject title="My Collection App" description="An android app(digital book) that consists of various captivating and realistic articles/stories written by Golda and Curie."
                         techstack="Xamarin Android, Firebase, Lottie Animation" slides={MyCollectionslides} showGoogleStore={false}
                         livelink="https://github.com/Deba22/MyCollection/blob/master/mycollection.apk" codelink="https://github.com/Deba22/MyCollection" />
                     <MobileProject title="Covid Fight App" description="An android app that helps you maintain social distance by alerting you when other people are too close so that you can move, and maintain social distance from them."
-                        techstack="Xamarin Android, Bluetooth" slides={MyCollectionslides} showGoogleStore={false}
+                        techstack="Xamarin Android, Bluetooth" slides={CovidFightslides} showGoogleStore={false}
                         livelink="https://github.com/Deba22/Covid-Fight-App/blob/master/covidfight.apk" codelink="https://github.com/Deba22/Covid-Fight-App" />
                 </div>
                 <div className="view-more">
