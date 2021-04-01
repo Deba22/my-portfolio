@@ -6,9 +6,9 @@ export default function Home() {
   return (
     <main>
       <Landing />
-     <About/>
-     {/*  <Work/>
-      <Contact/>  */} 
+      <About />
+      <Work />
+      <Contact />
     </main>
   )
 }
