@@ -8,6 +8,7 @@ function Contact() {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const [name, setName] = useState("");
+    const [botCheck, setBotCheck] = useState("");
 
     const [isEmailActive, setisEmailActive] = useState(false);
     const [isMessageActive, setisMessageActive] = useState(false);
@@ -20,7 +21,10 @@ function Contact() {
 
     const handleSendMessage = async (e) => {
         e.preventDefault();
-        if (!name) {
+        if (botCheck) {
+            return;
+        }
+        else if (!name) {
             nameRef.current.nextSibling.classList.add('error-msg');
             nameRef.current.focus();
         }
@@ -55,7 +59,7 @@ function Contact() {
                     addToast("Thanks! You'll hear from me within 24 hours. Keep an eye on your email box.", {
                         appearance: 'success',
                         autoDismiss: true,
-                        autoDismissTimeout:7500
+                        autoDismissTimeout: 7500
                     })
                 })
                 .catch(error => {
@@ -64,7 +68,7 @@ function Contact() {
                     addToast("There was an error in sending your message. Please try again later.", {
                         appearance: 'error',
                         autoDismiss: true,
-                        autoDismissTimeout:7500
+                        autoDismissTimeout: 7500
                     })
                 });
         }
@@ -75,7 +79,7 @@ function Contact() {
         const emailRE = /^\S+@\S+\.\S+$/;
         inputElemsLabels.forEach((elem) => {
             elem.addEventListener('click', (e) => {
-               elem.nextSibling.focus();
+                elem.nextSibling.focus();
             });
         });
         inputElems.forEach((elem) => {
@@ -130,6 +134,10 @@ function Contact() {
                             <label className={(isMessageActive && message) ? "field-active" : ""}>Message</label>
                             <textarea ref={messageRef} name="message" id="message" className="inputElem" value={message} onChange={e => setMessage(e.target.value)} onFocus={e => setisMessageActive(true)}></textarea>
                             <p className="error">Come on, pour your heart out...</p>
+                        </div>
+                        <div className="form-input botCheck">
+                            <label>Bot Check</label>
+                            <input type="text" name="BotCheck" id="BotCheck" className="inputElemHidden" value={botCheck} onChange={e => setBotCheck(e.target.value)} />
                         </div>
                         <div className="form-input buttons">
                             <button type="submit" className="button" id="submitForm" onClick={handleSendMessage}>Send Message</button>

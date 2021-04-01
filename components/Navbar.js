@@ -14,6 +14,7 @@ function Navbar() {
                 <div className="logo">
                 <Image alt="logo" className="avatar" src="/logo-head.svg" height="50" width="50" />
                 </div>
+                <span class="nav-toggle mobile"></span>
                 <Link to="about" smooth={true}>About</Link>
                 <Link  to="work" smooth={true}>Work</Link>
                 <NextLink href="/blogs">Blogs</NextLink>
@@ -27,6 +28,7 @@ function Navbar() {
                 <div className="logo">
                 <Image alt="logo" className="avatar" src="/logo-head.svg" height="50" width="50" />
                 </div>
+                <span class="nav-toggle mobile"></span>
                 <NextLink href="/">About</NextLink>
                 <NextLink href="/">Work</NextLink>
                 <NextLink href="/blogs">Blogs</NextLink>

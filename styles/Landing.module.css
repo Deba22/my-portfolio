@@ -61,3 +61,35 @@
 .btn:hover{
     box-shadow: 0 0.5rem 1.5rem rgb(45 147 173 / 50%);
 }
+
+/* tablet and below */
+@media only screen and (max-width: 768px) {
+    .hero__title {
+        font-size: 3rem;
+      }
+      .hero__title br {
+        display: none;
+      }
+      .hero__inner {
+        padding: 0;
+      }
+      .hero__inner__splitOne {
+        flex: 1;
+        width: 100%;
+        padding: 0 3rem 1rem;
+      }
+      .hero__inner__splitTwo {
+        display: none;
+      }
+}
+
+/* mobile phones and below */
+@media (max-width: 450px)
+{
+.hero__inner{
+    padding: 5rem 0rem;
+}
+.hero__inner__splitOne {
+    margin: 0;
+}
+}
