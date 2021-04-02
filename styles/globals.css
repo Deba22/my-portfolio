@@ -45,16 +45,22 @@ nav a:hover{
   background: #0f97b8;
   color: white;
   border-radius: 99px;
+  margin-left: 25px;
 }
 nav .logo {
   margin-right: auto;
 }
+
 .mobile, .nav-info.mobile, .nav-social.mobile {
   display: none;
 }
 /* mobile phones and below */
 @media (max-width: 450px)
 {
+  .navbar-inner{
+    display: flex;
+    flex-direction: column;
+  }
 .nav-toggle {
     width: 2rem;
     height: 2rem;
@@ -140,7 +146,7 @@ nav .logo {
 }
 .navbar:after, .navbar:before {
   position: absolute;
-  content: "";
+  /* content: ""; */
   left: 0;
   top: 0;
   width: 100%;
@@ -159,6 +165,13 @@ nav .logo {
   background: transparent;
   color: #7b8ba4;
   border-radius: 0;
+}
+
+.nav-info.mobile, .nav-social.mobile {
+  display: flex;
+}
+.navbar>.nav-info{
+  margin-bottom: 0;
 }
 }
 /* Start About Section */
@@ -944,7 +957,7 @@ footer .container {
 .nav-info {
   display: flex;
   align-items: flex-end;
-  margin-top: auto!important;
+  /* margin-top: auto!important; */
   align-self: center;
   color: #7b8ba4;
 }
@@ -1024,14 +1037,20 @@ footer .container {
 }
 .nav-info {
   margin-bottom: 2rem;
+  margin-top: 4rem;
+  align-self: auto;
+}
+.nav-social {
+  align-self: auto;
 }
 }
 /* End Footer Section */
 /* Start Blogs Page */
 .blogs{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    padding: 1rem 3rem 5rem 3rem;
+    align-items: center;
+    justify-content: center;
 }
 
 /* End Blogs Page */

@@ -1,7 +1,7 @@
 import animationDataHero from "../public/hero-image.json"
 import Animation from '../components/Animation'
 import styles from '../styles/Landing.module.css'
-import {Link} from 'react-scroll'
+import { Link } from 'react-scroll'
 function Landing() {
   return (
     <section id="hero">
