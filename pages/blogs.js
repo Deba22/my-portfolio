@@ -3,7 +3,7 @@ import Meta from '../components/Meta'
 function blogs() {
     return (
         <div className="blogs">
-            <Meta title="Blogs"></Meta>
+            <Meta title="Debasish Gracias Blogs"></Meta>
             <Image alt="web-dev service image" src="/coming-soon.svg" height="500" width="500" />
             <h1>Coming soon...</h1>
         </div>
