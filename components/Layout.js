@@ -6,7 +6,7 @@ import Navbar from './Navbar'
 function Layout({ children }) {
     return (
         <>
-            <Meta/>
+            <Meta />
             <div className="content">
                 <Navbar />
                 {children}

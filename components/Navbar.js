@@ -79,44 +79,6 @@ function Navbar() {
                 </nav>
             </div>
         </header>
-
-
-
-        // <header id="navbar">
-        //     {router.pathname == "/" ?
-        //         (
-        //             <div className="container">
-        //                 <nav>
-        //                     <div className="logo">
-        //                         <Image alt="logo" className="avatar" src="/logo-head.svg" height="50" width="50" />
-        //                     </div>
-        //                     <span className="nav-toggle mobile"></span>
-        //                     <div className="navbar">
-        //                         <Link className="mob-nav-link" to="about" smooth={true} >About</Link>
-        //                         <Link className="mob-nav-link" to="work" smooth={true} >Work</Link>
-        //                         <NextLink href="/blogs"><a className="mob-nav-link" >Blogs</a></NextLink>
-        //                         <Link className="last mob-nav-link" to="contact" smooth={true} >Contact</Link>
-        //                     </div>
-        //                 </nav>
-        //             </div>
-        //       ) :
-        //         (
-        //             <div className="container">
-        //                 <nav>
-        //                     <div className="logo">
-        //                         <Image alt="logo" className="avatar" src="/logo-head.svg" height="50" width="50" />
-        //                     </div>
-        //                     <span className="nav-toggle mobile"></span>
-        //                     <div className="navbar">
-        //                     <NextLink className="mob-nav-link" href="/">About</NextLink>
-        //                     <NextLink className="mob-nav-link" href="/">Work</NextLink>
-        //                     <NextLink className="mob-nav-link" href="/blogs">Blogs</NextLink>
-        //                     <NextLink className="mob-nav-link" href="/"><a className="last">Contact</a></NextLink>
-        //                     </div>
-        //                 </nav>
-        //             </div>
-        //         )}
-        // </header>
     )
 }
 

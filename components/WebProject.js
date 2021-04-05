@@ -1,7 +1,7 @@
 import { useInView } from 'react-intersection-observer';
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from 'react'
-function WebProject({ title, description, techstack, desktopimage, mobileimage, livelink, codelink ,isBorderRemove}) {
+function WebProject({ title, description, techstack, desktopimage, mobileimage, livelink, codelink, isBorderRemove }) {
     const controls = useAnimation();
     const [ref, inView] = useInView();
 
@@ -29,7 +29,7 @@ function WebProject({ title, description, techstack, desktopimage, mobileimage, 
                     initial="hidden"
                     transition={{ duration: 0.3 }}
                     variants={imageVariants}
-                    alt="tmdb mobile screenshot" loading="lazy" className={"small " + (isBorderRemove ? 'remove-small' : null)}  src={mobileimage} />
+                    alt="tmdb mobile screenshot" loading="lazy" className={"small " + (isBorderRemove ? 'remove-small' : null)} src={mobileimage} />
             </div>
             <div className="project-details">
                 <h4>{title}</h4>
