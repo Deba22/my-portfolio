@@ -37,7 +37,7 @@ function Navbar() {
             <div className="container">
                 <nav>
                     <div className="logo">
-                        <Image alt="logo" className="avatar" src="/logo-head.svg" height="50" width="50" />
+                        <Image alt="logo" className="avatar" src="/logoHead.svg" height="50" width="50" />
                     </div>
                     <span className="nav-toggle mobile"></span>
                     <div className="navbar">
