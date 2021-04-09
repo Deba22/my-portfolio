@@ -17,7 +17,7 @@ function Footer() {
                 }
                 <div className="footer-inner">
                     <div className="nav-info">
-                        <img alt="logo" className="avatar" src="/logofooter.svg" height="50" width="50" />
+                        <img alt="logo" className="avatar" src="/LogoFooter.svg" height="50" width="50" />
                         <span>
                             <h3>Debasish Gracias</h3>
                             <p>Full Stack Developer</p>
