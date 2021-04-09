@@ -1,0 +1,7 @@
+/* mobile phones and below */
+@media (max-width: 450px)
+{
+.divHeight{
+    height: 200px;
+}
+}

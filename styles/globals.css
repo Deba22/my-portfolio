@@ -20,7 +20,7 @@ a {
   margin: 0 auto;
 }
 header .container {
-  padding: 2rem 5rem;
+  padding: 2rem 3rem;
 }
 nav {
   /* margin: 10px auto 80px; */
@@ -69,6 +69,10 @@ nav .logo {
     right: 2rem;
     top: 2rem;
     border-radius: 99px;
+}
+.mobile a{
+  padding: 0;
+  margin-left: 50px;
 }
 .mobile {
     display: block;
@@ -172,6 +176,7 @@ nav .logo {
 }
 .navbar>.nav-info{
   margin-bottom: 0;
+  margin-top: 17rem;
 }
 }
 /* Start About Section */
