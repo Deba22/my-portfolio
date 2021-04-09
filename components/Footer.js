@@ -17,7 +17,7 @@ function Footer() {
                 }
                 <div className="footer-inner">
                     <div className="nav-info">
-                        <Image alt="logo" className="avatar" src="/logoFooter.svg" height="50" width="50" />
+                        <img alt="logo" className="avatar" src="/logofooter.svg" height="50" width="50" />
                         <span>
                             <h3>Debasish Gracias</h3>
                             <p>Full Stack Developer</p>
@@ -25,13 +25,13 @@ function Footer() {
                     </div>
                     <span className="nav-social">
                         <a href="https://github.com/Deba22" rel="noreferrer" target="_blank" aria-label="Github">
-                            <Image src="/github.svg" alt="github" height="20" width="20" className="social-icons" />
+                            <img src="/github.svg" alt="github" height="20" width="20" className="social-icons" />
                         </a>
                         <a href="https://www.linkedin.com/in/debasish-gracias-47456a136/" rel="noreferrer" target="_blank" aria-label="LinkedIn">
-                            <Image src="/linkedin.svg" alt="LinkedIn" height="20" width="20" className="social-icons" />
+                            <img src="/linkedin.svg" alt="LinkedIn" height="20" width="20" className="social-icons" />
                         </a>
                         <a href="https://www.instagram.com/deba_gracias/" rel="noreferrer" target="_blank" aria-label="Instagram">
-                            <Image src="/instagram.svg" alt="Instagram" height="20" width="20" className="social-icons" />
+                            <img src="/instagram.svg" alt="Instagram" height="20" width="20" className="social-icons" />
                         </a>
                        
                     </span>

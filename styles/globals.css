@@ -986,6 +986,7 @@ footer .container {
 .nav-social {
   display: flex;
   align-self: center;
+  margin-left: 5px;
 }
 .nav-social a {
   display: block;
