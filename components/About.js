@@ -17,7 +17,7 @@ function About() {
             });
         }
 
-    }, [audioElement]);
+    }, [audioElement]); 
 
 
     const handleAudio = () => {
