@@ -1,7 +1,7 @@
-import { airtableApiKey } from '../../config'
+
 export default function handler(req, res) {
     var Airtable = require('airtable');
-    var base = new Airtable({ apiKey: airtableApiKey }).base('appa9ziCwEDhZSTmQ');
+    var base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base('appa9ziCwEDhZSTmQ');
     base('Queries').create([
         {
             "fields": req.body

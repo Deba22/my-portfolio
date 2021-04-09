@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import { useEffect, useState, useRef } from 'react'
-import { server } from '../config'
 import { ToastProvider, useToasts } from 'react-toast-notifications'
 
 function Contact() {
@@ -42,7 +41,8 @@ function Contact() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ Name: name, Email: email, Message: message })
             };
-            const response = await fetch(`${server}/api/sendMessageToAirtable`, requestOptions)
+            var fetchUrl="/api/sendMessageToAirtable";
+            const response = await fetch(fetchUrl, requestOptions)
                 .then(async response => {
                     const data = await response.json();
                     // check for error response
