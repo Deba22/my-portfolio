@@ -40,7 +40,7 @@ function About() {
                 <h3 className="heading">Who Am I?</h3>
                 <div className="about-who">
                     <div className="hero-image">
-                        <Image alt="avatar image" className="avatar" src="/profile-pic.svg" height="500" width="500" />
+                        <Image alt="avatar image" className="avatar" src="/profile-pic.png" height="500" width="500" />
                     </div>
                     <div className="hero-content">
                         <h4>HELLO. THIS IS</h4>
