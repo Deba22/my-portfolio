@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Meta from '../components/Meta'
+import Meta from '../../components/Meta'
 function blogs() {
     return (
         <div className="blogs">
