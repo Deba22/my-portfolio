@@ -46,14 +46,14 @@ function Navbar() {
                                 <div className="navbar-inner">
                                     <Link className="mob-nav-link" to="about" smooth={true} onClick={handleLinkClick}>About</Link>
                                     <Link className="mob-nav-link" to="work" smooth={true} onClick={handleLinkClick}>Work</Link>
-                                    <NextLink href="/blogs"><a className="mob-nav-link" onClick={handleLinkClick}>Blogs</a></NextLink>
+                                    <NextLink href="/blogs"><a className="mob-nav-link" onClick={handleLinkClick}>Blog</a></NextLink>
                                     <Link className="last mob-nav-link" to="contact" smooth={true} onClick={handleLinkClick}>Contact</Link>
                                 </div>
                             ) : (
                                 <div className="navbar-inner">
                                     <NextLink href="/"><a className="mob-nav-link" onClick={handleLinkClick}>About</a></NextLink>
                                     <NextLink href="/"><a className="mob-nav-link" onClick={handleLinkClick}>Work</a></NextLink>
-                                    <NextLink href="/blogs"><a className="mob-nav-link" onClick={handleLinkClick}>Blogs</a></NextLink>
+                                    <NextLink href="/blogs"><a className="mob-nav-link" onClick={handleLinkClick}>Blog</a></NextLink>
                                     <NextLink href="/"><a className="last mob-nav-link" onClick={handleLinkClick}>Contact</a></NextLink>
                                 </div>
                             )}

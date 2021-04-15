@@ -3,7 +3,7 @@
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 body {
   background: #eff7fa;
-  color: #333;
+  color: #000;
   font-family: "Nunito";
   margin: 0;
 }
@@ -1055,15 +1055,6 @@ footer .container {
 }
 }
 /* End Footer Section */
-/* Start Blogs Page */
-.blogs{
-    display: flex;
-    padding: 1rem 3rem 5rem 3rem;
-    align-items: center;
-    justify-content: center;
-}
-
-/* End Blogs Page */
 
 /* Start mobile carousel */
 .react-3d-carousel .slider-container .slider-left div{
@@ -1086,3 +1077,43 @@ footer .container {
   box-shadow: none !important;
 }
 /* End mobile carousel */
+
+/* Start Blog page */
+/* .banner{
+  height: 448px;
+  position: relative;
+  object-fit: contain;
+  color: white;
+  margin-bottom: 22px;
+}
+.banner__fadeBottom{
+  height: 7.4rem;
+  background-image: linear-gradient(180deg,tranparent,rgba(37,37,37,0.61),#111);
+} */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  cursor: pointer;
+}
+
+.pagination a {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #6c7ac9;
+  color: #6c7ac9;
+}
+
+.pagination__link {
+  font-weight: bold;
+}
+
+.pagination__link--active a {
+  color: #fff;
+  background: #6c7ac9;
+}
+
+.pagination__link--disabled a {
+  color: rgb(198, 197, 202);
+  border: 1px solid rgb(198, 197, 202);
+}

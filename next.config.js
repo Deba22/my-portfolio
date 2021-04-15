@@ -20,6 +20,9 @@ module.exports
             },
           });
       return config;
-    }
+    },
+    images: {
+      domains: ['images.ctfassets.net'],
+    },
   }
 //]);
