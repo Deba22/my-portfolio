@@ -43,17 +43,17 @@ function blogs({ blogs }) {
                     </h1>
                 </div>
                 <div className={styles.hero__inner__splitTwo}>
-                <Animation animPath={animationBlogHero} />
+                    <Animation animPath={animationBlogHero} />
                 </div>
             </div>
             <div className="outer-card">
-            {
-                blogs.slice(offset, offset + PER_PAGE).map(blog => (
-                    <BlogCard key={blog.sys.id} blog={blog} />
-                ))
-            } 
+                {
+                    blogs.slice(offset, offset + PER_PAGE).map(blog => (
+                        <BlogCard key={blog.sys.id} blog={blog} />
+                    ))
+                }
             </div>
-            
+
             {/* <ReactPaginate
                 previousLabel={"← Previous"}
                 nextLabel={"Next →"}
@@ -67,7 +67,7 @@ function blogs({ blogs }) {
             />  */}
             {/* <Image alt="web-dev service image" src="/coming-soon.svg" height="500" width="500" />
             <h1>Coming soon...</h1> */}
-             <style jsx>{`
+            <style jsx>{`
 .outer-card{
     display:flex;
 }
@@ -84,7 +84,6 @@ function blogs({ blogs }) {
     flex-direction:column;
 }
 }
-
             `}
             </style>
         </div>
