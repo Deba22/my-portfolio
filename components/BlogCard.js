@@ -40,8 +40,8 @@ function BlogCard({ blog }) {
             </Link>
             <style jsx global>{`
 .blogCard-outer{
-    padding:20px;
-    width:calc(100%/3);
+    flex: 0 32%;
+    margin-bottom: 2%;
 }
 .card{
     background:white;
@@ -75,7 +75,6 @@ function BlogCard({ blog }) {
 @media only screen and (max-width: 768px) {
     .blogCard-outer{
         flex: 0 0 45%;
-        padding: 20px;
     }
 }
 @media (max-width: 450px)

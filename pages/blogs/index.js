@@ -71,14 +71,10 @@ function blogs({ blogs }) {
             <style jsx>{`
 .outer-card{
     display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
-@media only screen and (max-width: 768px) {
-    .outer-card{
-        display:flex;
-        flex-flow: wrap;
-        justify-content: center;
-    }
-}
+
 @media (max-width: 450px)
 {
 .outer-card{

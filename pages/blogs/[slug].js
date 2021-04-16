@@ -1,6 +1,7 @@
 import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Image from 'next/image'
+import Skeleton from '../../components/Skeleton'
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -19,7 +20,7 @@ export const getStaticPaths = async () => {
 
     return {
         paths,
-        fallback: false
+        fallback: true
     }
 }
 export const getStaticProps = async ({ params }) => {
@@ -27,16 +28,25 @@ export const getStaticProps = async ({ params }) => {
         content_type: 'blog',
         'fields.slug': params.slug
     })
-
+    if (!items.length) {
+        return {
+            notFound: true,
+        }
+        // redirect:{
+        //     destination:'/',
+        //     permanent:false
+        // } 
+    }
     return {
         props: { blog: items[0] },
-        revalidate:60  //60sec
+        revalidate: 60  //60sec
     }
 
 }
 
 
 function BlogDetails({ blog }) {
+    if (!blog) return <Skeleton />
     const { featuredImage, title, publishDate, description } = blog.fields
     const formatDate = () => {
         let monthNames = ["January", "February", "March", "April",
