@@ -29,7 +29,8 @@ export const getStaticProps = async ({ params }) => {
     })
 
     return {
-        props: { blog: items[0] }
+        props: { blog: items[0] },
+        revalidate:60  //60sec
     }
 
 }
@@ -72,8 +73,9 @@ function BlogDetails({ blog }) {
             display:flex;
             flex-direction:column;
             align-items:center;
-            padding: 20px 100px;
+            padding: 20px 170px;
     background-color: white;
+    border-radius: 5px;
 }
 .blog-info{
     text-align: center;
@@ -87,6 +89,11 @@ function BlogDetails({ blog }) {
 .blog-info p{
     text-align: center;
     font-size:0.8rem;
+}
+@media only screen and (max-width: 768px) {
+    .blog-details{
+        padding: 20px 30px;
+    }
 }
 @media (max-width: 450px)
 {
