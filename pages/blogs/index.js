@@ -50,11 +50,11 @@ function blogs({ blogs }) {
                 </div>
             </div>
             <div className="outer-card">
-                {
+               {
                     blogs.slice(offset, offset + PER_PAGE).map(blog => (
                         <BlogCard key={blog.sys.id} blog={blog} />
                     ))
-                }
+                } 
             </div>
 
             {/* <ReactPaginate

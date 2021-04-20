@@ -19,9 +19,20 @@ function Navbar() {
             //     navToggle.classList.add('open');
             // }
         });
-
+        window.onscroll = function() {handleSticky()};
     }, []);
-
+    function handleSticky() {
+        var header = document.getElementById("navbar");
+        var sticky = header.offsetTop;
+        if (window.pageYOffset > sticky) {
+            //header.width(document.getElementById("navbar").width());
+            header.classList.add("sticky");
+            document.getElementById("navbarInner").style.padding = "0.5rem 3rem";
+          } else {
+            header.classList.remove("sticky");
+            document.getElementById("navbarInner").style.padding = "2rem 3rem";
+          }
+      }
     const handleLinkClick = (e) => {
         if (e.target.parentElement.parentElement.classList.contains('open')) {
             e.target.parentElement.parentElement.classList.remove('open');
@@ -34,7 +45,7 @@ function Navbar() {
     const router = useRouter()
     return (
         <header id="navbar">
-            <div className="container">
+            <div id="navbarInner" className="container">
                 <nav>
                     <div className="logo">
                         <img alt="logo" className="avatar" src="/LogoHead.svg" height="50" width="50" />

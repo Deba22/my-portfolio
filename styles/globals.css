@@ -7,9 +7,9 @@ body {
   font-family: "Nunito";
   margin: 0;
 }
-body.scrollingDisabled {
+/* body.scrollingDisabled {
   overflow: hidden;
-}
+} */
 a {
   color: #333;
   text-decoration: none;
@@ -21,13 +21,26 @@ a {
 }
 header .container {
   padding: 2rem 3rem;
+  transition: 0.4s; 
 }
+.sticky {
+  position: fixed;
+  background: #eff7fa;
+  max-width: inherit;
+  width: 100%;
+  /* width: 1300px; */
+  top: 0;
+  z-index: 99;
+  border-bottom: 1px solid #ddd;
+}
+
+
 nav {
   /* margin: 10px auto 80px; */
   padding: 10px 0;
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: center;
   /* border-bottom: 1px solid #ddd; */
 }
 nav a {

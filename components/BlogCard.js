@@ -29,7 +29,7 @@ function BlogCard({ blog }) {
                                 height={thumbnail.fields.file.details.image.height}
                             />
                         </div>
-                        <div className="content">
+                        <div className="blogCard-content">
                             <div className="info">
                                 <p>{formatDate()}</p>
                                 <h4>{title}</h4>
@@ -60,7 +60,7 @@ function BlogCard({ blog }) {
     border-top-right-radius: 10px;
 }
 
-.content{
+.blogCard-content{
     padding: 5px 20px 20px 20px;
 }
 .info p{
