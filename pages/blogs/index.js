@@ -36,7 +36,9 @@ function blogs({ blogs }) {
     }
     return (
         <div className={styles.blogs}>
-            <Meta title="Debasish Gracias Blogs"></Meta>
+            <Meta title="Blog | Debasish Gracias" description="The blog helps developers learn and create better digital solutions." 
+            metadataTitle="Blog | Debasish Gracias" metadataDescription="The blog helps developers learn and create better digital solutions.">
+            </Meta>
             <div className={styles.hero__inner}>
                 <div className={styles.hero__inner__splitOne}>
                     <h1 className={styles.hero__title}>

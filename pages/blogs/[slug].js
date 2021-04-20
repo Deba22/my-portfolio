@@ -2,6 +2,7 @@ import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Image from 'next/image'
 import Skeleton from '../../components/Skeleton'
+import Meta from '../../components/Meta'
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -47,7 +48,7 @@ export const getStaticProps = async ({ params }) => {
 
 function BlogDetails({ blog }) {
     if (!blog) return <Skeleton />
-    const { featuredImage, title, publishDate, description } = blog.fields
+    const { featuredImage, title, publishDate, description, metadataTitle, metadataDescription, metadataImage } = blog.fields
     const formatDate = () => {
         let monthNames = ["January", "February", "March", "April",
             "May", "June", "July", "August",
@@ -64,6 +65,9 @@ function BlogDetails({ blog }) {
     }
     return (
         <div className="blog-details">
+            <Meta title={title} description={metadataDescription}
+                metadataTitle={metadataTitle} metadataDescription={metadataDescription} metadataImage={'https:' + metadataImage.fields.file.url}>
+            </Meta>
             <div className="blog-info">
                 <h1>{title}</h1>
                 <p>{formatDate()}</p>
@@ -85,7 +89,7 @@ function BlogDetails({ blog }) {
             align-items:center;
             padding: 20px 170px;
     background-color: white;
-    border-radius: 5px;
+    box-shadow: 0 -1rem 2rem -1.5rem rgb(0 0 0 / 15%), 0 1rem 2rem -1.5rem rgb(0 0 0 / 15%);
 }
 .blog-info{
     text-align: center;
