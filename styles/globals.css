@@ -500,6 +500,7 @@ nav .logo {
 }
 .service h4{
   margin: 0px;
+  font-size: 1.3rem;
 }
 .services {
   flex-flow: column nowrap;
@@ -928,7 +929,7 @@ label.field-active {
   width: 100%;
 }
 .contact-info-inner h3 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 }
   
@@ -1065,6 +1066,9 @@ footer .container {
 }
 .nav-social {
   align-self: auto;
+}
+.nav-info h3 {
+  font-size: 1.45rem;
 }
 }
 /* End Footer Section */

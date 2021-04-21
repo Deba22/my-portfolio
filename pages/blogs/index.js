@@ -76,7 +76,11 @@ function blogs({ blogs }) {
     flex-wrap: wrap;
     justify-content: space-between;
 }
-
+@media only screen and (max-width: 768px) {
+    .outer-card{
+        margin:3rem;
+    }
+}
 @media (max-width: 450px)
 {
 .outer-card{

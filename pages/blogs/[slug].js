@@ -114,6 +114,9 @@ function BlogDetails({ blog }) {
     .blog-details{
         padding: 20px 10px;
     }
+    .blog-info h1{
+        font-size: 2.2rem;   
+    }
 }
         }
       `}</style>
