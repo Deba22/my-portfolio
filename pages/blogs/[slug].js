@@ -3,6 +3,8 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Image from 'next/image'
 import Skeleton from '../../components/Skeleton'
 import Meta from '../../components/Meta'
+import { useEffect } from 'react'
+
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -47,6 +49,12 @@ export const getStaticProps = async ({ params }) => {
 
 
 function BlogDetails({ blog }) {
+    useEffect(() => {
+        const codeElems = document.querySelectorAll('code');
+        codeElems.forEach((elem) => {
+            elem.parentElement.classList.add("codeSection");
+        });
+    },[]);
     if (!blog) return <Skeleton />
     const { featuredImage, title, publishDate, description, metadataTitle, metadataDescription, metadataImage } = blog.fields
     const formatDate = () => {
@@ -104,6 +112,7 @@ function BlogDetails({ blog }) {
     text-align: center;
     font-size:0.8rem;
 }
+
 @media only screen and (max-width: 768px) {
     .blog-details{
         padding: 20px 30px;
