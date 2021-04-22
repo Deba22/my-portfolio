@@ -1110,8 +1110,20 @@ footer .container {
 .codeSection{
   background:#ececec;
   padding:5px;
-  word-break: break-word;
   }
+  .blog-description a{
+    color: #2e75d4;
+}
+pre{
+  outline: 1px solid #ccc; 
+  padding: 5px; 
+  margin: 5px; 
+  white-space: pre-wrap;       
+  white-space: -moz-pre-wrap;  
+  white-space: -pre-wrap;      
+  white-space: -o-pre-wrap;    
+  word-wrap: break-word;  
+}
 .pagination {
   display: flex;
   justify-content: space-between;

@@ -52,7 +52,14 @@ function BlogDetails({ blog }) {
     useEffect(() => {
         const codeElems = document.querySelectorAll('code');
         codeElems.forEach((elem) => {
-            elem.parentElement.classList.add("codeSection");
+            // `elem` is the element you want to wrap
+            var parent = elem.parentNode;
+            var wrapper = document.createElement('pre');
+            // set the wrapper as child (instead of the element)
+            parent.replaceChild(wrapper, elem);
+            // set element as child of wrapper
+            wrapper.appendChild(elem);
+            elem.parentElement.parentElement.classList.add("codeSection");
         });
     },[]);
     if (!blog) return <Skeleton />
@@ -112,6 +119,7 @@ function BlogDetails({ blog }) {
     text-align: center;
     font-size:0.8rem;
 }
+
 
 @media only screen and (max-width: 768px) {
     .blog-details{
