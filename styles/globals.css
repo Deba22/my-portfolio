@@ -1111,6 +1111,10 @@ footer .container {
   background:#ececec;
   padding:5px;
   }
+  .blog-description{
+    max-width: inherit;
+  width: 100%;
+  }
   .blog-description a{
     color: #2e75d4;
 }
