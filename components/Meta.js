@@ -9,7 +9,7 @@ function Meta({ title, description, metadataTitle, metadataDescription, metadata
             <meta name='description' content={description} />
             <meta charSet='utf-8' />
             <link rel='icon' href='/favicon.ico' />
-            <meta property="og:url" content="https://debasishgracias.com" />
+            <meta property="og:url" content="https://www.debasish.tech" />
             <meta property="og:title" content={metadataTitle} />
             <meta property="og:description" content={metadataDescription} />
             <meta property="og:type" content="website" />
