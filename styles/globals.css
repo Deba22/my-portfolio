@@ -333,6 +333,10 @@ nav .logo {
   max-width: 520px;
   font-size: 1rem;
 }
+.description-link{
+  color:#0f97b8;
+  font-weight: bold;
+}
 .cta {
   background: #eff7fa;
   padding: .75rem 2rem .75rem 3.25rem;

@@ -39,7 +39,7 @@ function Footer() {
                 <span className="copyright">
                     Goa, India <br></br>
         debagracias@gmail.com <br></br>
-        Copyright © 2023
+        Copyright © 2024
         </span>
             </div>
         </footer>
