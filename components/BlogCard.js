@@ -19,7 +19,7 @@ function BlogCard({ blog }) {
     }
     return (
         <div className="blogCard-outer">
-            <Link href={'/blogs/' + slug}>
+            <Link href={'/blogs/' + slug} legacyBehavior>
                 <a>
                     <div className="card">
                         <div className="featured">
@@ -88,7 +88,7 @@ function BlogCard({ blog }) {
             `}
             </style>
         </div>
-    )
+    );
 }
 
 export default BlogCard
