@@ -75,7 +75,7 @@ function BlogDetails( {blog} ) {
             </Meta> */}
             <div className="blog-info">
                 <h1>{blog.properties?.title}</h1>
-                <p>{formatDate()}</p>
+                <p>Published by {blog.properties?.author[0]?.name} on {formatDate()}</p>
             </div>
             {
                         blog.properties?.mainImage  ?(
@@ -94,9 +94,7 @@ function BlogDetails( {blog} ) {
                 <div dangerouslySetInnerHTML={{ __html: blog.properties?.richTextContent?.markup }}></div>
             </div>
             <style jsx>{`
-            .code-snippet{
-            font-family: monospace;
-            }
+
         .blog-details{
             display:flex;
             flex-direction:column;
@@ -116,7 +114,8 @@ function BlogDetails( {blog} ) {
 
 .blog-info p{
     text-align: center;
-    font-size:0.8rem;
+    font-size:1rem;
+    font-weight: 600;
 }
 
 

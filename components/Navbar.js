@@ -43,12 +43,15 @@ function Navbar() {
 
     }
     const router = useRouter()
+    console.log('goat:',router.pathname);
     return (
         <header id="navbar">
             <div id="navbarInner" className="container">
                 <nav>
                     <div className="logo">
+                   <NextLink href='/' className='nohover'>
                         <img alt="logo" className="avatar" src="/LogoHead.svg" height="50" width="50" />
+                    </NextLink>
                     </div>
                     <span className="nav-toggle mobile"></span>
                     <div className="navbar">
