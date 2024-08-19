@@ -1048,7 +1048,7 @@ footer .container {
   }
 }
 /* mobile phones and below */
-@media (max-width: 450px)
+@media (max-width: 768px)
 {
   .footer-inner, footer .container {
     display: flex;

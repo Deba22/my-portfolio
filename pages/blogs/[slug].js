@@ -1,23 +1,18 @@
-import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Image from 'next/image'
 import Skeleton from '../../components/Skeleton'
 import Meta from '../../components/Meta'
 import { useEffect } from 'react'
+import { fetchItem,fetchItems } from '../../utils/umbracoContentDeliveryApi';
 
 
-const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY
-})
-export const getStaticPaths = async () => {
-    const res = await client.getEntries({
-        content_type: "blog"
-    })
+export async function getStaticPaths() {
 
-    const paths = res.items.map(item => {
+    const blogItems = await fetchItems({filter:'blog'});
+
+    const paths = blogItems.items.map(item => {
         return {
-            params: { slug: item.fields.slug }
+            params: { slug: item.route.path }
         }
     })
 
@@ -26,31 +21,25 @@ export const getStaticPaths = async () => {
         fallback: true
     }
 }
-export const getStaticProps = async ({ params }) => {
-    const { items } = await client.getEntries({
-        content_type: 'blog',
-        'fields.slug': params.slug
-    })
-    if (!items.length) {
-        return {
-            notFound: true,
-        }
-        // redirect:{
-        //     destination:'/',
-        //     permanent:false
-        // } 
-    }
+
+export async function getStaticProps({params}) {
+    let blogs = null;
+    try {
+    blogs = await fetchItem('blogs/'+params.slug);
+    }catch (err) { };
+    console.log('blogs:',blogs)
+
     return {
-        props: { blog: items[0] },
+        props: { blog: blogs },
         revalidate: 60  //60sec
     }
-
 }
 
 
-function BlogDetails({ blog }) {
+
+function BlogDetails( {blog} ) {
     useEffect(() => {
-        const codeElems = document.querySelectorAll('code');
+        const codeElems = document.querySelectorAll('.code-snippet');
         codeElems.forEach((elem) => {
             // `elem` is the element you want to wrap
             var parent = elem.parentNode;
@@ -59,16 +48,16 @@ function BlogDetails({ blog }) {
             parent.replaceChild(wrapper, elem);
             // set element as child of wrapper
             wrapper.appendChild(elem);
-            elem.parentElement.parentElement.classList.add("codeSection");
+            elem.parentElement.classList.add("codeSection");
         });
     },[]);
-    if (!blog) return <Skeleton />
-    const { featuredImage, title, publishDate, description, metadataTitle, metadataDescription, metadataImage } = blog.fields
+    if (!blog) return <div>test</div>
+    //const { featuredImage, title, publishDate, description, metadataTitle, metadataDescription, metadataImage } = blog.fields
     const formatDate = () => {
         let monthNames = ["January", "February", "March", "April",
             "May", "June", "July", "August",
             "September", "October", "November", "December"];
-        var d = new Date(publishDate);
+        var d = new Date(blog.properties.blogDate);
         let day = d.getDate();
 
         let monthIndex = d.getMonth();
@@ -80,24 +69,34 @@ function BlogDetails({ blog }) {
     }
     return (
         <div className="blog-details">
-            <Meta title={title} description={metadataDescription}
+            {/* <Meta title={title} description={metadataDescription}
                 metadataTitle={metadataTitle} metadataDescription={metadataDescription} metadataImage={'https:' + metadataImage.fields.file.url}>
-            </Meta>
+            </Meta> */}
             <div className="blog-info">
-                <h1>{title}</h1>
+                <h1>{blog.properties?.title}</h1>
                 <p>{formatDate()}</p>
             </div>
+            {
+                        blog.properties?.mainImage  ?(
             <div className="blog-banner">
                 <Image
-                    src={'https:' + featuredImage.fields.file.url}
-                    width={featuredImage.fields.file.details.image.width}
-                    height={featuredImage.fields.file.details.image.height}
+                    src={'https://my-umbraco-backend.euwest01.umbraco.io' + blog.properties?.mainImage[0]?.url}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    style={{ width: '100%', height: 'auto' }}
+                    alt={blog.properties?.mainImage[0]?.name}
                 />
-            </div>
+            </div>) :<></>
+}
             <div className="blog-description">
-                <div>{documentToReactComponents(description)}</div>
+                <div dangerouslySetInnerHTML={{ __html: blog.properties?.richTextContent?.markup }}></div>
+                {/* <div>{blog.properties?.richTextContent?.markup}</div> */}
             </div>
             <style jsx>{`
+            .code-snippet{
+            font-family: monospace;
+            }
         .blog-details{
             display:flex;
             flex-direction:column;

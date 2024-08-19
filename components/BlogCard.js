@@ -2,37 +2,45 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 function BlogCard({ blog }) {
-    const { title, slug, publishDate, thumbnail } = blog.fields
     const formatDate = () => {
         let monthNames = ["January", "February", "March", "April",
             "May", "June", "July", "August",
             "September", "October", "November", "December"];
-            var d = new Date(publishDate);
+        var d = new Date(blog.properties.blogDate);
         let day = d.getDate();
-    
+
         let monthIndex = d.getMonth();
         let monthName = monthNames[monthIndex];
-    
+
         let year = d.getFullYear();
-    
+
         return `${day} ${monthName} ${year}`;
     }
     return (
         <div className="blogCard-outer">
-            <Link href={'/blogs/' + slug} legacyBehavior>
+            <Link href={blog.route.path} legacyBehavior>
                 <a>
                     <div className="card">
-                        <div className="featured">
-                            <Image className="thumnail-img"
-                                src={'https:' + thumbnail.fields.file.url}
-                                width={thumbnail.fields.file.details.image.width}
-                                height={thumbnail.fields.file.details.image.height}
-                            />
-                        </div>
+                        {
+                        blog.properties?.thumbnailImage  ?(
+                                <div className="featured">
+                                <Image className="thumnail-img"
+                                    src={'https://my-umbraco-backend.euwest01.umbraco.io' + blog.properties?.thumbnailImage[0]?.url}
+                                    width={0}
+                                    height={0}
+                                    sizes="100vw"
+                                    style={{ width: '100%', height: 'auto' }}
+                                    alt={blog.properties?.thumbnailImage[0]?.name}
+                                />
+                            </div>) :<></>
+                            
+                           
+                        }
+
                         <div className="blogCard-content">
                             <div className="info">
                                 <p>{formatDate()}</p>
-                                <h4>{title}</h4>
+                                <h4>{blog.properties.title}</h4>
                             </div>
                         </div>
                     </div>
@@ -40,8 +48,10 @@ function BlogCard({ blog }) {
             </Link>
             <style jsx global>{`
 .blogCard-outer{
-    flex: 0 32%;
-    margin-bottom: 2%;
+    width: 31.33%;
+    margin-right: 3%;
+    margin-bottom: 3%;
+
 }
 .card{
     background:white;
@@ -72,19 +82,29 @@ function BlogCard({ blog }) {
     color:#000;
     margin:0;
 }
-@media only screen and (max-width: 768px) {
-    .blogCard-outer{
-        flex: 0 0 45%;
+@media only screen and (min-width: 992px) {
+    .blogCard-outer:nth-child(3n+3){
+        margin-right:0px;
     }
 }
-@media (max-width: 450px)
-{
+@media only screen and (max-width: 992px) {
 .blogCard-outer{
-    width:100%;
-    padding: 20px 0px 20px 0px;
+    width: 48.5%;
+    margin-right: 3%;
+     margin-bottom: 3%;
+}
+     .blogCard-outer:nth-child(2n+2){
+        margin-right:0px;
+    }
+}
+       
+@media only screen and (max-width: 450px) {
+.blogCard-outer{
+    width: 100%;
+     margin-right:0px;
+     margin-bottom: 3%;
 }
 }
-
             `}
             </style>
         </div>

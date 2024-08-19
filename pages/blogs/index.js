@@ -1,6 +1,6 @@
+import { fetchItem,fetchItems } from '../../utils/umbracoContentDeliveryApi';
 import Image from 'next/image'
 import Meta from '../../components/Meta'
-import { createClient } from 'contentful'
 import BlogCard from '../../components/BlogCard'
 import { useState } from 'react'
 import ReactPaginate from 'react-paginate';
@@ -8,21 +8,19 @@ import animationBlogHero from "../../public/blogging-image.json"
 import Animation from '../../components/Animation'
 import styles from '../../styles/Blog.module.css'
 
+
 export async function getStaticProps() {
-    const client = createClient({
-        space: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_KEY
-    })
-    const res = await client.getEntries({ content_type: 'blog' })
+    const blogItems = await fetchItems({filter:'blog'});
     return {
         props: {
-            blogs: res.items
+            blogs: blogItems
         },
         revalidate:60  //60sec
     }
+
 }
 
-function blogs({ blogs }) {
+function blogs({blogs}) {
     console.log(blogs)
     const [currentPage, setCurrentPage] = useState(0);
     const PER_PAGE = 9;
@@ -42,7 +40,13 @@ function blogs({ blogs }) {
             <div className={styles.hero__inner}>
                 <div className={styles.hero__inner__splitOne}>
                     <h1 className={styles.hero__title}>
-                        Our Blog
+                        {
+                            blogs.items.filter(function(bloglist){
+                                return bloglist.contentType==="blogList";
+                            }).map(bloglist => (
+                                bloglist.properties.title
+                            ))
+                        }
                     </h1>
                 </div>
                 <div className={styles.hero__inner__splitTwo}>
@@ -51,8 +55,10 @@ function blogs({ blogs }) {
             </div>
             <div className="outer-card">
                {
-                    blogs.slice(offset, offset + PER_PAGE).map(blog => (
-                        <BlogCard key={blog.sys.id} blog={blog} />
+                    blogs.items.filter(function(blog){
+                        return blog.contentType==="blog";
+                    }).slice(offset, offset + PER_PAGE).map(blog => (
+                        <BlogCard key={blog.id} blog={blog} />
                     ))
                 } 
             </div>
@@ -74,17 +80,7 @@ function blogs({ blogs }) {
 .outer-card{
     display:flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-}
-@media only screen and (max-width: 768px) {
-    .outer-card{
-        margin:3rem;
-    }
-}
-@media (max-width: 450px)
-{
-.outer-card{
-    flex-direction:column;
+     padding: 0 3rem 1rem;
 }
 }
             `}
@@ -92,5 +88,4 @@ function blogs({ blogs }) {
         </div>
     )
 }
-
 export default blogs

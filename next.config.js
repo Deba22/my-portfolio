@@ -22,7 +22,20 @@ module.exports
       return config;
     },
     images: {
-      domains: ['images.ctfassets.net'],
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'my-umbraco-backend.euwest01.umbraco.io',
+          port: '',
+          pathname: '/media/**',
+        },
+        // {
+        //   protocol: 'https',
+        //   hostname: 'localhost',
+        //   port: '44378',
+        //   pathname: '/media/**',
+        // },
+      ],
     },
   }
 //]);
