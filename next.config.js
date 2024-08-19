@@ -29,12 +29,12 @@ module.exports
           port: '',
           pathname: '/media/**',
         },
-        // {
-        //   protocol: 'https',
-        //   hostname: 'localhost',
-        //   port: '44378',
-        //   pathname: '/media/**',
-        // },
+        {
+          protocol: 'https',
+          hostname: 'localhost',
+          port: '44378',
+          pathname: '/media/**',
+        },
       ],
     },
   }

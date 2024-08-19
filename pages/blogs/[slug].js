@@ -3,7 +3,9 @@ import Skeleton from '../../components/Skeleton'
 import Meta from '../../components/Meta'
 import { useEffect } from 'react'
 import { fetchItem,fetchItems } from '../../utils/umbracoContentDeliveryApi';
+const configManager = require('../../utils/configManager');
 
+const config = configManager.getConfig()
 
 export async function getStaticPaths() {
 
@@ -50,7 +52,7 @@ function BlogDetails( {blog} ) {
             elem.parentElement.classList.add("codeSection");
         });
     },[]);
-    if (!blog) return <div>test</div>
+    if (!blog) return <Skeleton></Skeleton>
     //const { featuredImage, title, publishDate, description, metadataTitle, metadataDescription, metadataImage } = blog.fields
     const formatDate = () => {
         let monthNames = ["January", "February", "March", "April",
@@ -79,7 +81,7 @@ function BlogDetails( {blog} ) {
                         blog.properties?.mainImage  ?(
             <div className="blog-banner">
                 <Image
-                    src={'https://my-umbraco-backend.euwest01.umbraco.io' + blog.properties?.mainImage[0]?.url}
+                    src={config.domain + blog.properties?.mainImage[0]?.url}
                     width={0}
                     height={0}
                     sizes="100vw"
