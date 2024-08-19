@@ -6,7 +6,7 @@ function BlogCard({ blog }) {
         let monthNames = ["January", "February", "March", "April",
             "May", "June", "July", "August",
             "September", "October", "November", "December"];
-        var d = new Date(blog.properties.blogDate);
+        var d = new Date(blog.properties?.blogDate);
         let day = d.getDate();
 
         let monthIndex = d.getMonth();
