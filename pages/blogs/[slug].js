@@ -1,4 +1,3 @@
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Image from 'next/image'
 import Skeleton from '../../components/Skeleton'
 import Meta from '../../components/Meta'
@@ -91,7 +90,6 @@ function BlogDetails( {blog} ) {
 }
             <div className="blog-description">
                 <div dangerouslySetInnerHTML={{ __html: blog.properties?.richTextContent?.markup }}></div>
-                {/* <div>{blog.properties?.richTextContent?.markup}</div> */}
             </div>
             <style jsx>{`
             .code-snippet{
