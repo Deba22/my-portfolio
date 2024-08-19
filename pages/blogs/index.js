@@ -10,7 +10,7 @@ import styles from '../../styles/Blog.module.css'
 
 
 export async function getStaticProps() {
-    const blogItems = await fetchItems({filter:'blog'});
+    const blogItems = await fetchItems({filter:null});
     return {
         props: {
             blogs: blogItems
@@ -44,7 +44,7 @@ function blogs({blogs}) {
                             blogs.items.filter(function(bloglist){
                                 return bloglist.contentType==="blogList";
                             }).map(bloglist => (
-                                bloglist.properties.title
+                                bloglist.properties?.title
                             ))
                         }
                     </h1>
