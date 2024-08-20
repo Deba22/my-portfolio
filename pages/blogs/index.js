@@ -41,7 +41,7 @@ function blogs({blogs}) {
                 return bloglist.contentType==="blogList";
             }).map(bloglist => (
                         <Meta title={bloglist.properties?.browserTitle} description={bloglist.properties?.metadataDescription}
-                            metadataTitle={bloglist.properties?.metadataTitle} metadataDescription={bloglist.properties?.metadataDescription} metadataImage={config.domain + bloglist.properties?.metadataImage[0]?.url} pageUrl={config.domain+bloglist.route?.path}>
+                            metadataTitle={bloglist.properties?.metadataTitle} metadataDescription={bloglist.properties?.metadataDescription} metadataImage={config.domain + bloglist.properties?.metadataImage[0]?.url} pageUrl={config.nextjs_domain+bloglist.route?.path}>
                         </Meta>
             ))
             }
