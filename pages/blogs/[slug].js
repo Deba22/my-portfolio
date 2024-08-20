@@ -70,9 +70,9 @@ function BlogDetails( {blog} ) {
     }
     return (
         <div className="blog-details">
-            {/* <Meta title={title} description={metadataDescription}
-                metadataTitle={metadataTitle} metadataDescription={metadataDescription} metadataImage={'https:' + metadataImage.fields.file.url}>
-            </Meta> */}
+            <Meta title={blog.properties?.browserTitle} description={blog.properties?.metadataDescription}
+                metadataTitle={blog.properties?.metadataTitle} metadataDescription={blog.properties?.metadataDescription} metadataImage={config.domain + blog.properties?.metadataImage[0]?.url} pageUrl={config.domain+blog.route.path}>
+            </Meta>
             <div className="blog-info">
                 <h1>{blog.properties?.title}</h1>
                 <p>Published by {blog.properties?.author[0]?.name} on {formatDate()}</p>

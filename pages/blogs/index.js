@@ -7,7 +7,9 @@ import ReactPaginate from 'react-paginate';
 import animationBlogHero from "../../public/blogging-image.json"
 import Animation from '../../components/Animation'
 import styles from '../../styles/Blog.module.css'
+const configManager = require('../../utils/configManager');
 
+const config = configManager.getConfig()
 
 export async function getStaticProps() {
     const blogItems = await fetchItems({filter:null});
@@ -34,9 +36,15 @@ function blogs({blogs}) {
     }
     return (
         <div className={styles.blogs}>
-            <Meta title="Blog | Debasish Gracias" description="The blog helps developers learn and create better digital solutions." 
-            metadataTitle="Blog | Debasish Gracias" metadataDescription="The blog helps developers learn and create better digital solutions.">
-            </Meta>
+            {
+            blogs.items.filter(function(bloglist){
+                return bloglist.contentType==="blogList";
+            }).map(bloglist => (
+                        <Meta title={bloglist.properties?.browserTitle} description={bloglist.properties?.metadataDescription}
+                            metadataTitle={bloglist.properties?.metadataTitle} metadataDescription={bloglist.properties?.metadataDescription} metadataImage={config.domain + bloglist.properties?.metadataImage[0]?.url} pageUrl={config.domain+bloglist.route.path}>
+                        </Meta>
+            ))
+            }
             <div className={styles.hero__inner}>
                 <div className={styles.hero__inner__splitOne}>
                     <h1 className={styles.hero__title}>

@@ -43,7 +43,6 @@ function Navbar() {
 
     }
     const router = useRouter()
-    console.log('goat:',router.pathname);
     return (
         <header id="navbar">
             <div id="navbarInner" className="container">
