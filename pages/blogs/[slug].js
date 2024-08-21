@@ -24,10 +24,19 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({params}) {
+    //console.log('context re:',context.draftMode);
     let blogs = null;
-    try {
-    blogs = await fetchItem('blogs/'+params.slug);
-    }catch (err) { };
+  //  if (context.draftMode) {
+        try {
+            blogs = await fetchItem('blogs/'+params.slug);
+            }catch (err) { };
+    //}
+    // else{
+    //     try {
+    //         blogs = await fetchItem('blogs/'+params.slug);
+    //         }catch (err) { };
+    // }
+   
     console.log('blogs:',blogs)
 
     return {
@@ -71,7 +80,7 @@ function BlogDetails( {blog} ) {
     return (
         <div className="blog-details">
             <Meta title={blog.properties?.browserTitle} description={blog.properties?.metadataDescription}
-                metadataTitle={blog.properties?.metadataTitle} metadataDescription={blog.properties?.metadataDescription} metadataImage={config.domain + blog.properties?.metadataImage[0]?.url} pageUrl={config.nextjs_domain+blog.route?.path}>
+                metadataTitle={blog.properties?.metadataTitle} metadataDescription={blog.properties?.metadataDescription} metadataImage={config.umbraco_domain + blog.properties?.metadataImage[0]?.url} pageUrl={config.nextjs_domain+blog.route?.path}>
             </Meta>
             <div className="blog-info">
                 <h1>{blog.properties?.title}</h1>
@@ -81,7 +90,7 @@ function BlogDetails( {blog} ) {
                         blog.properties?.mainImage  ?(
             <div className="blog-banner">
                 <Image
-                    src={config.domain + blog.properties?.mainImage[0]?.url}
+                    src={config.umbraco_domain + blog.properties?.mainImage[0]?.url}
                     width={0}
                     height={0}
                     sizes="100vw"
@@ -91,7 +100,7 @@ function BlogDetails( {blog} ) {
             </div>) :<></>
 }
             <div className="blog-description">
-                <div dangerouslySetInnerHTML={{ __html: blog.properties?.richTextContent?.markup }}></div>
+                <div dangerouslySetInnerHTML={{ __html: blog.properties?.richTextContent?.markup.replace(/\/media/g, config.umbraco_domain+'/media') }}></div>
             </div>
             <style jsx>{`
 

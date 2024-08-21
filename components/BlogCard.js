@@ -28,7 +28,7 @@ function BlogCard({ blog }) {
                         blog.properties?.thumbnailImage  ?(
                                 <div className="featured">
                                 <Image className="thumnail-img"
-                                    src={config.domain + blog.properties?.thumbnailImage[0]?.url}
+                                    src={config.umbraco_domain + blog.properties?.thumbnailImage[0]?.url}
                                     width={0}
                                     height={0}
                                     sizes="100vw"

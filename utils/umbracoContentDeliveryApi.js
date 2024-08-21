@@ -18,7 +18,7 @@ const addFilter = (url, filter) => {
     return url
 }
 
-const callContentDeliveryAPI = async (url) => {
+const callContentDeliveryAPI = async (url, preview) => {
 
     let items;
 
@@ -26,6 +26,7 @@ const callContentDeliveryAPI = async (url) => {
         const response = await fetch(url, {
             method: 'GET',
             headers: {
+                'Preview':preview,
                 'api-key': config.apiKey,
                 'Start-Item': config.my_portfolio_Route_path
           }});
@@ -41,21 +42,40 @@ const callContentDeliveryAPI = async (url) => {
 }
 
 export async function fetchItems({filter=null}) {
-    let url = `${config.domain}/umbraco/delivery/api/v2/content/?`;
+    let url = `${config.umbraco_domain}/umbraco/delivery/api/v2/content/?`;
     //url = addExpand(url, expand);
     url = addFilter(url, filter);
 
     console.log(url);
-    return callContentDeliveryAPI(url);
+    return callContentDeliveryAPI(url,false);
+
+}
+export async function fetchDraftItems({filter=null}) {
+    let url = `${config.umbraco_domain}/umbraco/delivery/api/v2/content/?`;
+    //url = addExpand(url, expand);
+    url = addFilter(url, filter);
+
+    console.log(url);
+    return callContentDeliveryAPI(url,true);
 
 }
 
 export async function fetchItem(pathOrId, expand) {
 
-    let url = `${config.domain}/umbraco/delivery/api/v2/content/item/${pathOrId}?`;
+    let url = `${config.umbraco_domain}/umbraco/delivery/api/v2/content/item/${pathOrId}?`;
    // url = addExpand(url, expand);
 
     console.log(url, config.apiKey);
 
-    return callContentDeliveryAPI(url);
+    return callContentDeliveryAPI(url,false);
+}
+
+export async function fetchDraftItem(pathOrId, expand) {
+
+    let url = `${config.umbraco_domain}/umbraco/delivery/api/v2/content/item/${pathOrId}?`;
+   // url = addExpand(url, expand);
+
+    console.log(url, config.apiKey);
+
+    return callContentDeliveryAPI(url,true);
 }

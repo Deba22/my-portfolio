@@ -1,4 +1,4 @@
-import { fetchItem,fetchItems } from '../../utils/umbracoContentDeliveryApi';
+import { fetchItem,fetchItems,fetchDraftItems } from '../../utils/umbracoContentDeliveryApi';
 import Image from 'next/image'
 import Meta from '../../components/Meta'
 import BlogCard from '../../components/BlogCard'
@@ -11,8 +11,16 @@ const configManager = require('../../utils/configManager');
 
 const config = configManager.getConfig()
 
-export async function getStaticProps() {
-    const blogItems = await fetchItems({filter:null});
+export async function getStaticProps(context) {
+    console.log('Draft Mode:',context.draftMode)
+   let blogItems=null;
+    if (context.draftMode) {
+        blogItems = await fetchDraftItems({filter:null});
+    }
+    else{
+        blogItems = await fetchItems({filter:null});
+    }
+  
     return {
         props: {
             blogs: blogItems
@@ -41,7 +49,7 @@ function blogs({blogs}) {
                 return bloglist.contentType==="blogList";
             }).map(bloglist => (
                         <Meta title={bloglist.properties?.browserTitle} description={bloglist.properties?.metadataDescription}
-                            metadataTitle={bloglist.properties?.metadataTitle} metadataDescription={bloglist.properties?.metadataDescription} metadataImage={config.domain + bloglist.properties?.metadataImage[0]?.url} pageUrl={config.nextjs_domain+bloglist.route?.path}>
+                            metadataTitle={bloglist.properties?.metadataTitle} metadataDescription={bloglist.properties?.metadataDescription} metadataImage={config.umbraco_domain + bloglist.properties?.metadataImage[0]?.url} pageUrl={config.nextjs_domain+bloglist.route?.path}>
                         </Meta>
             ))
             }
