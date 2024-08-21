@@ -9,7 +9,7 @@ const config = configManager.getConfig()
 
 export async function getStaticPaths() {
 
-    const blogItems = await fetchItems({filter:'blog'});
+    const blogItems = await fetchItems({filter:'blog',sort:null});
 
     const paths = blogItems.items.map(item => {
         return {

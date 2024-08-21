@@ -115,7 +115,7 @@ function Contact() {
                         <div className="contact-info-inner">
                             <h5>Let's make it work.</h5>
                             <h3><a href="mailto:debagracias@gmail.com">debagracias@gmail.com</a></h3>
-                            <h3><a href="tel:+917867943737">+91 7507465444</a></h3>
+                            {/* <h3><a href="tel:+917867943737">+91 7507465444</a></h3> */}
                         </div>
                     </div>
                     <form className="contact-form">

@@ -18,7 +18,7 @@ export async function getStaticProps(context) {
         blogItems = await fetchDraftItems({filter:null});
     }
     else{
-        blogItems = await fetchItems({filter:null});
+        blogItems = await fetchItems({filter:null,sort:'updateDate:desc'});
     }
   
     return {

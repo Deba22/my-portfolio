@@ -10,6 +10,14 @@ const addExpand = (url, expand) => {
     return url
 }
 
+const addSort = (url, sort) => {
+    if (sort) {
+        return `${url}sort=${sort}&`;
+    }
+
+    return url
+}
+
 const addFilter = (url, filter) => {
     if (filter) {
         return `${url}filter=contentType:${filter}&`;
@@ -41,9 +49,10 @@ const callContentDeliveryAPI = async (url, preview) => {
       return items;
 }
 
-export async function fetchItems({filter=null}) {
+export async function fetchItems({filter=null,sort=null}) {
     let url = `${config.umbraco_domain}/umbraco/delivery/api/v2/content/?`;
     //url = addExpand(url, expand);
+    url = addSort(url, sort);
     url = addFilter(url, filter);
 
     console.log(url);
