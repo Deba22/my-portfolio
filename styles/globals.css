@@ -356,6 +356,7 @@ nav .logo {
   backface-visibility: hidden;
   color: #0f97b8;
   cursor: pointer;
+  margin-left: 2rem;
 }
 .cta #hand {
   width: 3.25rem;
@@ -475,7 +476,7 @@ nav .logo {
 /* tablet and below */
 @media only screen and (max-width: 768px) { 
   .about__container{
-    padding: 5rem 3rem;
+    padding: 5rem 1rem;
   }
   .hero-content >h4{
     margin: 0px;
@@ -488,7 +489,7 @@ nav .logo {
     padding: 5rem 0rem;
 }
 .heading {
-  margin-left: 1rem;
+  margin-left: 2rem;
 }
 .about-who {
   margin-bottom: 8rem;
@@ -497,7 +498,6 @@ nav .logo {
 .about-who .hero-image {
   display: block;
   width: 90%;
-  margin: 0 auto;
 }
 .about-who .hero-content {
   margin: 3rem 0 0;
@@ -729,7 +729,7 @@ nav .logo {
 /* tablet and below */
 @media only screen and (max-width: 768px) { 
   .work__container{
-    padding: 5rem 3rem;
+    padding: 5rem 1rem;
   }
 }
 /* mobile phones and below */
@@ -739,7 +739,7 @@ nav .logo {
     display: block;
 }
 .work-heading{
-  margin-left: 1rem;
+  margin-left: 2rem;
 }
 .work-radio {
   justify-content: center;
@@ -919,7 +919,7 @@ label.field-active {
   /* tablet and below */
 @media only screen and (max-width: 768px) { 
   .contact__container{
-    padding: 5rem 3rem;
+    padding: 5rem 1rem;
   }
 .contact-form, .contact-info {
     padding: 1.5rem;

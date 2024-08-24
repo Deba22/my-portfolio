@@ -111,7 +111,10 @@ function Contact() {
                 <h3 className="heading">Let's Talk Business!</h3>
                 <div className="contact-inner">
                     <div className="contact-info">
-                        <Image alt="web-dev service image" src="/contact.svg" height="370" width="500" />
+                        <Image alt="web-dev service image" src="/contact.svg"   width={0}
+                    height={0}
+                    sizes="100vw"
+                    style={{ width: '100%', height: 'auto' }} />
                         <div className="contact-info-inner">
                             <h5>Let's make it work.</h5>
                             <h3><a href="mailto:debagracias@gmail.com">debagracias@gmail.com</a></h3>
