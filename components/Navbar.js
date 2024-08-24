@@ -27,10 +27,10 @@ function Navbar() {
         if (window.pageYOffset > sticky) {
             //header.width(document.getElementById("navbar").width());
             header.classList.add("sticky");
-            document.getElementById("navbarInner").style.padding = "0.5rem 3rem";
+            document.getElementById("navbarInner").style.padding = "0.5rem 1rem";
           } else {
             header.classList.remove("sticky");
-            document.getElementById("navbarInner").style.padding = "2rem 3rem";
+            document.getElementById("navbarInner").style.padding = "2rem 1rem";
           }
       }
     const handleLinkClick = (e) => {

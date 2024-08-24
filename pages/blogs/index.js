@@ -96,7 +96,7 @@ function blogs({blogs}) {
 .outer-card{
     display:flex;
     flex-wrap: wrap;
-     padding: 0 3rem 1rem;
+     padding: 0 1rem 1rem;
 }
 }
             `}
