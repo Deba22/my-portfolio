@@ -1,4 +1,4 @@
-import { fetchItem,fetchItems,fetchDraftItems } from '../../utils/umbracoContentDeliveryApi';
+import { fetchItems } from '../../utils/umbracoContentDeliveryApi';
 import Image from 'next/image'
 import Meta from '../../components/Meta'
 import BlogCard from '../../components/BlogCard'
@@ -12,14 +12,14 @@ const configManager = require('../../utils/configManager');
 const config = configManager.getConfig()
 
 export async function getStaticProps(context) {
-    console.log('Draft Mode:',context.draftMode)
-   let blogItems=null;
-    if (context.draftMode) {
-        blogItems = await fetchDraftItems({filter:null});
-    }
-    else{
-        blogItems = await fetchItems({filter:null,sort:'updateDate:desc'});
-    }
+
+   //let blogItems=null;
+    // if (context.draftMode) {
+    //     blogItems = await fetchItems({filter:null,sort:'updateDate:desc',draftMode:true});
+    // }
+    // else{
+      const blogItems = await fetchItems({filter:null,sort:'updateDate:desc',draftMode:false});
+   // }
   
     return {
         props: {
@@ -31,7 +31,6 @@ export async function getStaticProps(context) {
 }
 
 function blogs({blogs}) {
-    console.log(blogs)
     const [currentPage, setCurrentPage] = useState(0);
     const PER_PAGE = 9;
     const offset = currentPage * PER_PAGE;

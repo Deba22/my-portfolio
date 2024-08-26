@@ -7,9 +7,14 @@ const configManager = require('../../utils/configManager');
 
 const config = configManager.getConfig()
 
-export async function getStaticPaths() {
-
-    const blogItems = await fetchItems({filter:'blog',sort:null});
+export async function getStaticPaths(context) {
+//let blogItems=null;
+//if (context.preview) {
+     //blogItems = await fetchItems({filter:'blog',sort:null,draftMode:true});
+//}
+////else{
+   const blogItems = await fetchItems({filter:'blog',sort:null,draftMode:true});
+//}
 
     const paths = blogItems.items.map(item => {
         return {
@@ -19,25 +24,22 @@ export async function getStaticPaths() {
 
     return {
         paths,
-        fallback: true
+        fallback: false
     }
 }
 
-export async function getStaticProps({params}) {
-    //console.log('context re:',context.draftMode);
+export async function getStaticProps({params,draftMode}) {
     let blogs = null;
-  //  if (context.draftMode) {
-        try {
-            blogs = await fetchItem('blogs/'+params.slug);
-            }catch (err) { };
-    //}
-    // else{
+    // if (draftMode) {
     //     try {
-    //         blogs = await fetchItem('blogs/'+params.slug);
+    //         blogs = await fetchItem({pathOrId:'blogs/'+params.slug,draftMode:true});
     //         }catch (err) { };
     // }
-   
-    console.log('blogs:',blogs)
+    // else{
+        try {
+           blogs = await fetchItem({pathOrId:'blogs/'+params.slug,draftMode:true});
+            }catch (err) { };
+   // }
 
     return {
         props: { blog: blogs },

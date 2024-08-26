@@ -38,53 +38,33 @@ const callContentDeliveryAPI = async (url, preview) => {
                 'api-key': config.apiKey,
                 'Start-Item': config.my_portfolio_Route_path
           }});
-
         items = response.json();
-        console.log(items);
-
         } catch (e) {
+           
             console.log(e)
         }
 
       return items;
 }
 
-export async function fetchItems({filter=null,sort=null}) {
+export async function fetchItems({filter=null,sort=null,draftMode}) {
     let url = `${config.umbraco_domain}/umbraco/delivery/api/v2/content/?`;
     //url = addExpand(url, expand);
     url = addSort(url, sort);
     url = addFilter(url, filter);
 
-    console.log(url);
-    return callContentDeliveryAPI(url,false);
-
-}
-export async function fetchDraftItems({filter=null}) {
-    let url = `${config.umbraco_domain}/umbraco/delivery/api/v2/content/?`;
-    //url = addExpand(url, expand);
-    url = addFilter(url, filter);
-
-    console.log(url);
-    return callContentDeliveryAPI(url,true);
+    return callContentDeliveryAPI(url,draftMode);
 
 }
 
-export async function fetchItem(pathOrId, expand) {
+
+export async function fetchItem({pathOrId,draftMode}) {
 
     let url = `${config.umbraco_domain}/umbraco/delivery/api/v2/content/item/${pathOrId}?`;
    // url = addExpand(url, expand);
 
     console.log(url, config.apiKey);
 
-    return callContentDeliveryAPI(url,false);
+    return callContentDeliveryAPI(url,draftMode);
 }
 
-export async function fetchDraftItem(pathOrId, expand) {
-
-    let url = `${config.umbraco_domain}/umbraco/delivery/api/v2/content/item/${pathOrId}?`;
-   // url = addExpand(url, expand);
-
-    console.log(url, config.apiKey);
-
-    return callContentDeliveryAPI(url,true);
-}

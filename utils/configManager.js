@@ -6,12 +6,14 @@ export const getConfig  = () => {
     const umbraco_domain = process.env.NEXT_PUBLIC_UMBRACO_DOMAIN;
     const my_portfolio_Route_path = process.env.MY_PORTFOLIO_ROUTE_PATH;
     const nextjs_domain = process.env.NEXT_PUBLIC_NEXTJS_DOMAIN;
+    const Draft_Mode_Secret_Token = process.env.DRAFT_MODE_SECRET_TOKEN;
 
     return {
         apiKey,
         umbraco_domain,
         my_portfolio_Route_path,
-        nextjs_domain
+        nextjs_domain,
+        Draft_Mode_Secret_Token
     }
 }
 
