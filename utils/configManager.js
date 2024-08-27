@@ -1,6 +1,6 @@
 export const getConfig  = () => {
 
-    //process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
     const apiKey = process.env.UMBRACO_API_KEY
     const umbraco_domain = process.env.NEXT_PUBLIC_UMBRACO_DOMAIN;
