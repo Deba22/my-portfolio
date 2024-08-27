@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Blog posts | RSS Feed</title>
+        <link>http://localhost:3000/blogs</link>
+        <description>debasish.tech Blogs | Code examples and knowledge sharing</description>
+        <lastBuildDate>Tue, 27 Aug 2024 08:06:20 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>Feed for Blogs</generator>
+        <image>
+            <title>Blog posts | RSS Feed</title>
+            <url>http://localhost:3000/LogoHead.svg</url>
+            <link>http://localhost:3000/blogs</link>
+        </image>
+        <copyright>All rights reserved 2024</copyright>
+        <item>
+            <title><![CDATA[How to sort on a string field in Umbraco Examine]]></title>
+            <link>http://localhost:3000/blogs/how-to-sort-on-a-string-field-in-umbraco-examine/</link>
+            <guid>http://localhost:3000/blogs/how-to-sort-on-a-string-field-in-umbraco-examine/</guid>
+            <pubDate>Wed, 21 Aug 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[How to use audio(MP3 files) in Next JS]]></title>
+            <link>http://localhost:3000/blogs/how-to-use-audio-mp3-files-in-next-js/</link>
+            <guid>http://localhost:3000/blogs/how-to-use-audio-mp3-files-in-next-js/</guid>
+            <pubDate>Sun, 25 Apr 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Create animations using Lottie in Next JS]]></title>
+            <link>http://localhost:3000/blogs/create-animations-using-lottie-in-next-js/</link>
+            <guid>http://localhost:3000/blogs/create-animations-using-lottie-in-next-js/</guid>
+            <pubDate>Thu, 22 Apr 2021 00:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>

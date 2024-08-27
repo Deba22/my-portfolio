@@ -7,6 +7,7 @@ import ReactPaginate from 'react-paginate';
 import animationBlogHero from "../../public/blogging-image.json"
 import Animation from '../../components/Animation'
 import styles from '../../styles/Blog.module.css'
+import generateRssFeed from '../../utils/generateRSSFeed';
 const configManager = require('../../utils/configManager');
 
 const config = configManager.getConfig()
@@ -19,7 +20,13 @@ export async function getStaticProps(context) {
     // }
     // else{
       const blogItems = await fetchItems({filter:null,sort:'updateDate:desc',draftMode:false});
+      
+     const blogs= blogItems.items.filter(function(blog){
+        return blog.contentType==="blog";
+     });
+      await generateRssFeed(blogs);
    // }
+
   
     return {
         props: {
