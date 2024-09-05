@@ -17,7 +17,7 @@ function PrivacyPolicy( {privacyPolicy} ) {
   return (
     <div className={styles.privacypolicy}>
                     <h1 className={styles.privacypolicy__title}>
-                        {privacyPolicy.properties.title}
+                        {privacyPolicy.properties?.title}
                     </h1>
                     <div className="blog-description">
                 <div dangerouslySetInnerHTML={{ __html: privacyPolicy.properties?.richTextContent?.markup }}></div>
