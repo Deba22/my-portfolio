@@ -68,3 +68,8 @@ export async function fetchItem({pathOrId,draftMode}) {
     return callContentDeliveryAPI(url,draftMode);
 }
 
+export async function fetchPrivacyPolicy({pathOrId,draftMode}) {
+    let url = `${config.umbraco_domain}/umbraco/delivery/api/v2/content/item/${pathOrId}?`;
+    console.log(url, config.apiKey);
+    return callContentDeliveryAPI(url,draftMode);
+}

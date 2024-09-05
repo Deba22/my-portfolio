@@ -1,0 +1,21 @@
+.privacypolicy{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 3rem 5rem 3rem;
+    justify-content: center;
+    align-items: center;
+}
+.privacypolicy__title{
+    font-weight: 900;
+    -webkit-text-stroke: 2px #000;
+    color: #eff7fa;
+    font-size: 3.25rem;
+    text-shadow: -.25rem .25rem #000;
+    margin: 1rem 0rem 2rem 0rem;
+}
+@media only screen and (max-width: 768px) {
+    .privacypolicy{
+        padding: 0px 1rem;
+    }
+   
+}

@@ -4,7 +4,7 @@
         <title>Blog posts | RSS Feed</title>
         <link>http://localhost:3000/blogs</link>
         <description>debasish.tech Blogs | Code examples and knowledge sharing</description>
-        <lastBuildDate>Tue, 27 Aug 2024 08:06:20 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 05 Sep 2024 16:37:37 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Blogs</generator>
         <image>
