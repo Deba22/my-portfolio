@@ -25,7 +25,7 @@ module.exports
       remotePatterns: [
         {
           protocol: 'https',
-          hostname: 'my-umbraco-backend.euwest01.umbraco.io',
+          hostname: 'debasis1.umbhost.dev',
           port: '',
           pathname: '/media/**',
         },
