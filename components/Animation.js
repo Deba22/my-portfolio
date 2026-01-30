@@ -1,5 +1,6 @@
+import dynamic from "next/dynamic";
 
-import Lottie from "react-lottie";
+const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 
 function Animation({ animPath }) {
   const defaultOptions = {
@@ -11,9 +12,7 @@ function Animation({ animPath }) {
     },
   };
 
-  return (
-    <Lottie options={defaultOptions} />
-  )
+  return <Lottie options={defaultOptions} />;
 }
 
-export default Animation
+export default Animation;
