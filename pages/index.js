@@ -9,7 +9,7 @@ export default function Home() {
       <Meta/>
       <Landing />
       <About />
-      <Work />
+      {/* <Work /> */}
       <Contact />
     </main>
   )

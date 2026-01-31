@@ -18,7 +18,7 @@ function Footer() {
                         <img alt="logo" className="avatar" src="/LogoFooter.svg" height="50" width="50" />
                         <span>
                             <h3>Debasish Gracias</h3>
-                            <p>Full Stack Developer</p>
+                            <p>Umbraco Developer</p>
                         </span>
                     </div>
                     <span className="nav-social">
