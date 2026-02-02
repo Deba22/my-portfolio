@@ -26,9 +26,9 @@ function Meta({ title, description, metadataTitle, metadataDescription, metadata
     )
 }
 Meta.defaultProps = {
-    title: 'Debasish Gracias | Full Stack Developer',
-    description: 'I can help you build your next product. Got an amazing idea? I can create fully responsive websites and cross platform mobile apps.',
-    metadataTitle: 'Debasish Gracias | Full Stack Developer | Web Portfolio',
+    title: 'Debasish Gracias | Umbraco Developer',
+    description: 'I can build your next Umbraco website. Got an amazing idea? I can create fully responsive websites and cross platform mobile apps.',
+    metadataTitle: 'Debasish Gracias | Umbraco Developer | Web Portfolio',
     metadataDescription: 'I can help you build your next product. Got an amazing idea? I can create fully responsive websites and cross platform mobile apps.',
     metadataImage: 'https://github.com/Deba22/my-portfolio/tree/main/public/thumbnail.png',
 }

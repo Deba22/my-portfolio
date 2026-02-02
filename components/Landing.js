@@ -9,7 +9,7 @@ function Landing() {
         <div className={styles.hero__inner__splitOne}>
           <span className={styles.hero__tagline}>Digital experiences that matter!</span>
           <h1 className={styles.hero__title}>
-            I can build your next Umbraco website.
+            I can build your next <a  href="https://umbraco.com/" rel="noreferrer" target="_blank" aria-label="Umbraco">Umbraco</a> website.
           </h1>
           <h3 className={styles.hero__desc}>
             Have an exciting idea, but don't know where to begin? Now is the time to put all those crazy thoughts into action.
