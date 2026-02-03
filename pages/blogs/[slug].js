@@ -50,19 +50,16 @@ export async function getStaticProps({params,draftMode}) {
 
 
 function BlogDetails( {blog} ) {
-    useEffect(() => {
-        const codeElems = document.querySelectorAll('.code-snippet');
-        codeElems.forEach((elem) => {
-            // `elem` is the element you want to wrap
-            var parent = elem.parentNode;
-            var wrapper = document.createElement('pre');
-            // set the wrapper as child (instead of the element)
-            parent.replaceChild(wrapper, elem);
-            // set element as child of wrapper
-            wrapper.appendChild(elem);
-            elem.parentElement.classList.add("codeSection");
-        });
-    },[]);
+useEffect(() => {
+  // Run after blog content is rendered
+  if (blog?.properties?.richTextContent?.markup) {
+    const preElems = document.querySelectorAll('pre');
+    preElems.forEach((elem) => {
+      elem.classList.add("codeSection");
+    });
+  }
+}, [blog]);
+
     if (!blog) return <Skeleton></Skeleton>
     //const { featuredImage, title, publishDate, description, metadataTitle, metadataDescription, metadataImage } = blog.fields
     const formatDate = () => {
