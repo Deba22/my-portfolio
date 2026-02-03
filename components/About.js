@@ -43,7 +43,7 @@ function About() {
                         <Image alt="avatar image" className="avatar" src="/profile-pic.png" height="300" width="300" />
                     </div>
                     <div className="hero-content">
-                        <h4>HELLO. THIS IS</h4>
+                        <h4>HELLO. THIS IS </h4>
                         <h1 className="title">DEBASISH GRACIAS</h1>
                         <p className="phonetics">
                             <span className="lighter">(n.) /dəbeisiʃ Gracias/</span>
