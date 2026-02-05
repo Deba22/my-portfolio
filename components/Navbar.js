@@ -84,8 +84,11 @@ function Navbar() {
                             <a href="https://www.linkedin.com/in/debasish-gracias-47456a136/" rel="noreferrer" target="_blank" aria-label="LinkedIn">
                                 <Image src="/linkedin.svg" alt="LinkedIn" height="20" width="20" className="social-icons" />
                             </a>
-                            <a href="https://www.instagram.com/deba_gracias/" rel="noreferrer" target="_blank" aria-label="Instagram">
+                            {/* <a href="https://www.instagram.com/deba_gracias/" rel="noreferrer" target="_blank" aria-label="Instagram">
                                 <Image src="/instagram.svg" alt="Instagram" height="20" width="20" className="social-icons" />
+                            </a> */}
+                             <a href="/rss.xml" rel="noreferrer" target="_blank" aria-label="RSS">
+                                <img src="/rss.svg" alt="Instagram" height="20" width="20" className="social-icons" />
                             </a>
                         </span>
                     </div>

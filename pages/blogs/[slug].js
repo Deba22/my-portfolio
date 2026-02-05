@@ -3,6 +3,8 @@ import Skeleton from '../../components/Skeleton'
 import Meta from '../../components/Meta'
 import { useEffect } from 'react'
 import { fetchItem,fetchItems } from '../../utils/umbracoContentDeliveryApi';
+import GiscusComments from "../../components/GiscusComments";
+
 const configManager = require('../../utils/configManager');
 
 const config = configManager.getConfig()
@@ -101,6 +103,7 @@ useEffect(() => {
             <div className="blog-description">
                 <div dangerouslySetInnerHTML={{ __html: blog.properties?.richTextContent?.markup.replace(/\/media/g, config.umbraco_domain+'/media') }}></div>
             </div>
+            <GiscusComments />
             <style jsx>{`
 
         .blog-details{
