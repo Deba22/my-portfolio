@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import { useEffect, useState, useRef } from 'react'
-import { ToastProvider, useToasts } from 'react-toast-notifications'
+//import { ToastProvider, useToasts } from 'react-toast-notifications'
 
 function Contact() {
-    const { addToast } = useToasts();
+    //const { addToast } = useToasts();
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const [name, setName] = useState("");
@@ -56,20 +56,20 @@ function Contact() {
                     setMessage("");
                     console.log('success!');
                     //alert('success');
-                    addToast("Thanks! You'll hear from me within 24 hours. Keep an eye on your email box.", {
-                        appearance: 'success',
-                        autoDismiss: true,
-                        autoDismissTimeout: 7500
-                    })
+                    // addToast("Thanks! You'll hear from me within 24 hours. Keep an eye on your email box.", {
+                    //     appearance: 'success',
+                    //     autoDismiss: true,
+                    //     autoDismissTimeout: 7500
+                    // })
                 })
                 .catch(error => {
                     console.error('There was an error!', error);
                     //alert(error);
-                    addToast("There was an error in sending your message. Please try again later.", {
-                        appearance: 'error',
-                        autoDismiss: true,
-                        autoDismissTimeout: 7500
-                    })
+                    // addToast("There was an error in sending your message. Please try again later.", {
+                    //     appearance: 'error',
+                    //     autoDismiss: true,
+                    //     autoDismissTimeout: 7500
+                    // })
                 });
         }
     }
@@ -108,7 +108,7 @@ function Contact() {
     return (
         <section id="contact">
             <div className="contact__container">
-                <h3 className="heading">Let's Talk Business!</h3>
+                <h3 className="heading">Let's Talk!</h3>
                 <div className="contact-inner">
                     <div className="contact-info">
                         <Image alt="web-dev service image" src="/contact.svg"   width={0}

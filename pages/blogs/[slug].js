@@ -10,13 +10,9 @@ const configManager = require('../../utils/configManager');
 const config = configManager.getConfig()
 
 export async function getStaticPaths(context) {
-//let blogItems=null;
-//if (context.preview) {
-     //blogItems = await fetchItems({filter:'blog',sort:null,draftMode:true});
-//}
-////else{
+
    const blogItems = await fetchItems({filter:'blog',sort:null,draftMode:true});
-//}
+
 
     const paths = blogItems.items.map(item => {
         return {
@@ -32,16 +28,11 @@ export async function getStaticPaths(context) {
 
 export async function getStaticProps({params,draftMode}) {
     let blogs = null;
-    // if (draftMode) {
-    //     try {
-    //         blogs = await fetchItem({pathOrId:'blogs/'+params.slug,draftMode:true});
-    //         }catch (err) { };
-    // }
-    // else{
+
         try {
            blogs = await fetchItem({pathOrId:'blogs/'+params.slug,draftMode:true});
             }catch (err) { };
-   // }
+   
 
     return {
         props: { blog: blogs },
@@ -63,7 +54,7 @@ useEffect(() => {
 }, [blog]);
 
     if (!blog) return <Skeleton></Skeleton>
-    //const { featuredImage, title, publishDate, description, metadataTitle, metadataDescription, metadataImage } = blog.fields
+  
     const formatDate = () => {
         let monthNames = ["January", "February", "March", "April",
             "May", "June", "July", "August",

@@ -1,26 +1,21 @@
-import Script from "next/script";
+import Giscus from "@giscus/react";
 
 export default function GiscusComments() {
   return (
-    <>
-      <Script
-        src="https://giscus.app/client.js"
-        data-repo="Deba22/my-portfolio"
-        data-repo-id="MDEwOlJlcG9zaXRvcnkzNDMzODE2MTM="
-        data-category="Blog Comments"
-        data-category-id="DIC_kwDOFHeWbc4C17Ba"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="light"
-        data-lang="en"
-        data-loading="lazy"
-        crossOrigin="anonymous"
-        async
-      />
-      <div className="giscus" />
-    </>
+    <Giscus
+      id="comments"
+      repo="Deba22/my-portfolio"
+      repoId="MDEwOlJlcG9zaXRvcnkzNDMzODE2MTM="
+      category="Blog Comments"
+      categoryId="DIC_kwDOFHeWbc4C17Ba"
+      mapping="pathname"
+      strict="0"
+      reactionsEnabled="1"
+      emitMetadata="0"
+      inputPosition="bottom"
+      theme="light"
+      lang="en"
+      loading="lazy"
+    />
   );
 }

@@ -1,18 +1,18 @@
-import dynamic from "next/dynamic";
-
-const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
+import Lottie from "lottie-react";
 
 function Animation({ animPath }) {
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animPath,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-
-  return <Lottie options={defaultOptions} />;
+  return (
+    <Lottie
+      animationData={animPath}
+      loop={true}
+      autoplay={true}
+      style={{
+    width: "100%",
+    height: "100%",
+    objectFit: "cover"   // similar to "slice"
+  }}
+    />
+  );
 }
 
 export default Animation;

@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Meta from '../../components/Meta'
 import BlogCard from '../../components/BlogCard'
 import { useState } from 'react'
-import ReactPaginate from 'react-paginate';
 import animationBlogHero from "../../public/blogging-image.json"
 import Animation from '../../components/Animation'
 import styles from '../../styles/Blog.module.css'
@@ -14,18 +13,12 @@ const config = configManager.getConfig()
 
 export async function getStaticProps(context) {
 
-   //let blogItems=null;
-    // if (context.draftMode) {
-    //     blogItems = await fetchItems({filter:null,sort:'updateDate:desc',draftMode:true});
-    // }
-    // else{
       const blogItems = await fetchItems({filter:null,sort:'updateDate:desc',draftMode:false});
       
      const blogs= blogItems.items.filter(function(blog){
         return blog.contentType==="blog";
      });
       await generateRssFeed(blogs);
-   // }
 
   
     return {
@@ -41,9 +34,7 @@ function blogs({blogs}) {
     const [currentPage, setCurrentPage] = useState(0);
     const PER_PAGE = 9;
     const offset = currentPage * PER_PAGE;
-    // const currentPageData = data
-    //     .slice(offset, offset + PER_PAGE)
-    //     .map(({ thumburl }) => <img src={thumburl} />);
+
     const pageCount = Math.ceil(blogs.length / PER_PAGE);
     function handlePageClick({ selected: selectedPage }) {
         setCurrentPage(selectedPage);
@@ -85,19 +76,6 @@ function blogs({blogs}) {
                 } 
             </div>
 
-            {/* <ReactPaginate
-                previousLabel={"← Previous"}
-                nextLabel={"Next →"}
-                pageCount={pageCount}
-                onPageChange={handlePageClick}
-                containerClassName={"pagination"}
-                previousLinkClassName={"pagination__link"}
-                nextLinkClassName={"pagination__link"}
-                disabledClassName={"pagination__link--disabled"}
-                activeClassName={"pagination__link--active"}
-            />  */}
-            {/* <Image alt="web-dev service image" src="/coming-soon.svg" height="500" width="500" />
-            <h1>Coming soon...</h1> */}
             <style jsx>{`
 .outer-card{
     display:flex;
