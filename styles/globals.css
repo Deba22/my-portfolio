@@ -233,11 +233,24 @@ nav .logo {
   justify-content: center;
   margin-bottom: 10rem;
 }
-.about-who .hero-image {
-   width: 35%; 
-   max-width: 300px; 
-  margin-bottom: auto;
+
+.hero-image {
+  position: relative; /* allows overlay positioning */
+  display: inline-block;
 }
+
+.avatar {
+  border-radius: 50%; /* optional: circular avatar */
+}
+
+.badge-icon {
+  position: absolute;
+  position: absolute;
+  bottom: 68px;
+  right: 31px;
+  border-radius: 50%;
+}
+
 .about-who .hero-content {
   margin: auto 0 1rem 3rem;
   width: -webkit-fit-content;

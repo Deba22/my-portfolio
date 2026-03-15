@@ -61,6 +61,15 @@ function blogs({blogs}) {
                             ))
                         }
                     </h1>
+                    <p
+                    className="page-description"
+                    dangerouslySetInnerHTML={{
+                        __html: blogs.items
+                        .filter(bloglist => bloglist.contentType === "blogList")
+                        .map(bloglist => bloglist.properties?.richTextContent?.markup)
+                        .join("") // join in case multiple items
+                    }}
+                    ></p>
                 </div>
                 <div className={styles.hero__inner__splitTwo}>
                     <Animation animPath={animationBlogHero} />

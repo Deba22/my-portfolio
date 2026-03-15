@@ -52,7 +52,8 @@ function About() {
         <h3 className="heading">Who Am I?</h3>
         <div className="about-who">
           <div className="hero-image">
-            <Image alt="avatar image" className="avatar" src="/profile-pic.png" height="300" width="300" />
+            <Image alt="avatar image" className="avatar" src="/Deba-Profile.jpg" height="300" width="300" />
+             <Image alt="MVP badge" className="badge-icon" src="/MVP-Badge-2025.svg" height="60" width="60" />
           </div>
           <div className="hero-content">
             <h4>HELLO. THIS IS </h4>
